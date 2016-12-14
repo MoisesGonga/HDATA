@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="HDATA.Views.Definicoes_UserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HDATA.Views"
+             mc:Ignorable="d" Height="603.54" Width="1030.14" BorderBrush="#EFEFEF">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="MainResourceDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="83*"/>
+        </Grid.RowDefinitions>
+
+        <TabControl TabStripPlacement="Left" FontSize="14" Grid.Row="1" Style="{DynamicResource OfficeTabControlStyle}" ItemContainerStyle="{DynamicResource OfficeTabItemStyle}">
+            <TabItem x:Name="tab_0" Header="CONTA DE UTILIZADOR" Width="250" Padding="5" Cursor="Hand">
+                <Grid Background="White">
+                    <local:DefinicaoContaUtilizador_UserControl Margin="80,53,80,184" Loaded="DefinicaoContaUtilizador_UserControl_Loaded"  />
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tab_1" Header="GERIR UTILIZADORES" Width="250" Padding="5" Cursor="Hand">
+                <Grid Background="White"/>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="HDATA.Views.Listar_Pacientes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HDATA.Views"
+             mc:Ignorable="d" 
+             xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+             d:DesignHeight="346.392" d:DesignWidth="586.082">
+    <Grid Grid.Row="1" Name="grid_sub">
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="24"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right">
+            
+            <Controls:AutoCompleteBox Name="text_buscar" IsTextCompletionEnabled="True" SelectedItem="{Binding  selectedNomes_, Mode=TwoWay}"  BorderThickness="1 0 1 1 " BorderBrush="green"  HorizontalAlignment="Right"  VerticalAlignment="Center"  Text="Buscar paciente"  Width="148"/>
+            <Button x:Name="button" Content="Buscar" HorizontalAlignment="Left" Width="42"  Grid.Row="0" Click="button_Click"/>
+        </StackPanel>
+
+
+
+        <DataGrid x:Name="dataGrid1" RowHeight="24"  AutoGenerateColumns="False" AlternatingRowBackground="#EFEFEF" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" Width="Auto" SelectionChanged="dataGrid1_SelectionChanged" HorizontalGridLinesBrush="#3F3F46" VerticalGridLinesBrush="{x:Null}" FontSize="14" VerticalContentAlignment="Stretch" Cursor="Hand">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID CENTRO" Binding="{Binding id}" Width="AUTO"/>
+                <DataGridTextColumn Header="NRº PRONTUÁRIO HOSPITAL" Binding="{Binding nome}"/>
+                <DataGridTextColumn Header="NOME PACIENTE" Binding="{Binding nome}"/>
+                <DataGridTextColumn Header="TIPO INSUFICIÊNCIA" Binding="{Binding nome}"/>
+                <DataGridTextColumn Header="DATA ENTRADA" Binding="{Binding nome}"/>
+                <DataGridTextColumn Header="DATA INICIO TRATAMENTO" Binding="{Binding nome}"/>
+                <DataGridTextColumn Header="Nº BILHETE IDENTIDADE" Binding="{Binding nome}"/>
+                <DataGridTextColumn Header="NOME ENTIDADE RESPONSÁVEL" Binding="{Binding nome}"/>
+                <DataGridTextColumn Header="NRº TERMO RESPONSABILIDADE" Binding="{Binding nome}"/>
+                <DataGridTextColumn Header="NOME PAI" Binding="{Binding nome}"/>
+                <DataGridTextColumn Header="NOME MÃE" Binding="{Binding nome}"/>
+                <DataGridTextColumn Header="NACIONALIDADE" Binding="{Binding nome}"/>
+                <DataGridTextColumn Header="DATA NASCIMENTO" Binding="{Binding nome}"/>
+                <DataGridTextColumn Header="BILHETE IDENTIDADE" Binding="{Binding nome}"/>
+                <DataGridTextColumn Header="HABILITAÇÃO LITERARIA" Binding="{Binding nome}"/>
+                
+                
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Grid.Row="0" Name="btn_editar" Content="Editar" Width="70" HorizontalAlignment="Left" Margin="10,0,0,0" Click="btn_editar_Click"   />
+    </Grid>
+</UserControl>

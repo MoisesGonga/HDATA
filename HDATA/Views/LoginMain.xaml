@@ -1,0 +1,63 @@
+﻿<Window xmlns:Controls="clr-namespace:HDATA.Controls"  x:Class="HDATA.Views.LoginMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HDATA.Views"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:ctr="clr-namespace:FlatCustomControl;assembly=FlatCustomControl"
+        mc:Ignorable="d"
+        Title="LOGIN" MinHeight="501.042" Height="501.042" MinWidth="358.584" Width="358.584" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="MainResourceDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="179"/>
+            <RowDefinition Height="157"/>
+            <RowDefinition Height="86"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Grid.RowSpan="5" Grid.Row="0">
+
+        </Border>
+        <Border BorderThickness="0" MouseDown="Border_MouseDown" Background="#FF007ACC" DragDrop.DragOver="Border_DragOver">
+            <Label FontFamily="Roboto" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"  Margin="0">Login</Label>
+        </Border>
+
+        <fa:ImageAwesome  VerticalAlignment="Center" Icon="UserMd" HorizontalAlignment="Center" Grid.Row="1"  Foreground="#FF566066" Height="146" Width="134" Margin="112,16,113,17">
+        </fa:ImageAwesome>
+        <StackPanel Orientation="Vertical" Grid.Row="2" >
+
+            <Label Name="lbl_notificacao" Visibility="Hidden" Height="35" HorizontalAlignment="Center" Content="" Foreground="#FFEC3434" FontSize="14"/>
+
+            <Controls:TextBoxLogin x:Name="txt_login" Width="300" Height="36"  Watermark="Nome de Utilizador" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0 10" GotFocus="txt_login_GotFocus" />
+            <Controls:PasswordLogin x:Name="txt_senha"  Width="300" Height="36"  Watermark="Palavra-Passe" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0 5" GotFocus="txt_senha_GotFocus"/>
+        </StackPanel>
+        <StackPanel  Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="30,0,29,0" Width="300">
+            <Button x:Name="button_entrar"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="50" Width="142" Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand" Click="button_entrar_Click">
+                <StackPanel Orientation="Horizontal">
+                    <fa:ImageAwesome x:Name="font_icon" Foreground="White" Width="20" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="SignIn" />
+                    <Label Content="Entrar" FontSize="20"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"></Label>
+                </StackPanel>
+            </Button>
+            <Button x:Name="button_sair"  HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Center" Height="50" Width="142" Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand" Click="button_sair_Click">
+                <StackPanel Orientation="Horizontal">
+                    <fa:ImageAwesome x:Name="font_icon_sair" Foreground="White" Width="20" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="SignOut" />
+                    <Label Content="Sair" FontSize="20"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"></Label>
+                </StackPanel>
+            </Button>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

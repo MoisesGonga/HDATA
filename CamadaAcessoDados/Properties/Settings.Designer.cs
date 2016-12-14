@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HDATA.Properties {
+namespace CamadaAcessoDados.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -26,11 +26,11 @@ namespace HDATA.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("User Id=postgres;Password=Administrador;Host=localhost;Database=bd_hemodialise;Pe" +
-            "rsist Security Info=True;Initial Schema=public")]
-        public string StringConexao_1 {
+        [global::System.Configuration.DefaultSettingValueAttribute("server = localhost; port = 5432; Database=bd_hemodialise; User id = postgres; Pas" +
+            "sword=Administrador")]
+        public string StringConexao {
             get {
-                return ((string)(this["StringConexao_1"]));
+                return ((string)(this["StringConexao"]));
             }
         }
     }

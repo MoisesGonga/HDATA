@@ -13,10 +13,18 @@ namespace CamadaAcessoDados
     public class AcessoDadosPostgreSQL
     {
 
+        private NpgsqlConnection con_;
 
-        private NpgsqlConnection CriarConexao()
+        public NpgsqlConnection Conexao
         {
-            return new NpgsqlConnection(CamadaAcessoDados.Properties.Settings.Default.StringConexao);
+            get {
+                if (this.con_ == null)
+                {
+                    return new NpgsqlConnection(CamadaAcessoDados.Properties.Settings.Default.StringConexao);
+                }
+                return con_;
+            }
+             
         }
 
         //Manipular Parametros no PostgreSql
@@ -34,20 +42,17 @@ namespace CamadaAcessoDados
 
         public object ExecututarManipulacao(CommandType commandType,string nomeProcedimentoOuStringSQL)
         {
+            NpgsqlConnection npgsqlconnection = null;
             try
             {
                 //Criar Conexão
-                NpgsqlConnection npgsqlconnection = CriarConexao();
-
+                npgsqlconnection = Conexao;
                 //Abrir Conexão
                 npgsqlconnection.Open();
                 NpgsqlCommand npgsqlCommand = npgsqlconnection.CreateCommand();
                 //Tipo de Comando (Se é um procedimento ou uma String SQL)
 
                 npgsqlCommand.CommandType = commandType;
-                npgsqlCommand.CommandText = nomeProcedimentoOuStringSQL;
-                npgsqlCommand.CommandTimeout = 7200;//Duas Horas (EM SEGUNDOS)
-
                 //Adicionar os Parametros no Commando
 
                 foreach (NpgsqlParameter npgsqlParameter in npgsqlParameterCollection)
@@ -55,24 +60,33 @@ namespace CamadaAcessoDados
                     npgsqlCommand.Parameters.Add(new NpgsqlParameter(npgsqlParameter.ParameterName, npgsqlParameter.Value));
                 }
 
-                //npgsqlconnection.Close();
+                npgsqlCommand.CommandText = nomeProcedimentoOuStringSQL;
+                npgsqlCommand.CommandTimeout = 7200;//Duas Horas (EM SEGUNDOS)
+
+               
 
                 return npgsqlCommand.ExecuteScalar();
             }
             catch (NpgsqlException ex)
             {
-                throw new Exception($"Verificar os Seguintes Problemas na Camada de AcessoDadosPostgreSQL Executar Manipulação: {ex.Message }");
+                throw new Exception($"Verificar os Seguintes Problemas na Camada de AcessoDadosPostgreSQL Executar Manipulação: \n"+ ex);
+            }
+            finally
+            {
+                
+                if (npgsqlconnection.State == ConnectionState.Open)
+                {
+                    npgsqlconnection.Close();
+                }
             }
         }
 
-        
-
         public DataTable ExecututarConsulta(CommandType commandType, string nomeProcedimentoOuStringSQL)
         {
-           
+            NpgsqlConnection npgsqlConnection = null;
             try
             {
-                NpgsqlConnection npgsqlConnection = CriarConexao();
+                npgsqlConnection = Conexao;
                 npgsqlConnection.Open();
                 NpgsqlCommand npgsqlCommand = npgsqlConnection.CreateCommand();
                 //Tipo de Comando (Se é um procedimento ou uma String SQL)
@@ -92,7 +106,7 @@ namespace CamadaAcessoDados
                 //Data Table  Tabela onde vai ser colocado os ddos que vem do banco de dados
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
-                npgsqlConnection.Close();
+               
                 return dataTable;
 
             }
@@ -100,9 +114,48 @@ namespace CamadaAcessoDados
             {
                 throw new Exception($"Verificar os Seguintes Problemas na Camada de AcessoDadosPostgreSQL Executar Consulta: {ex.Message }");
             }
+            finally
+            {
+                
+                if (npgsqlConnection.State == ConnectionState.Open)
+                {
+                    npgsqlConnection.Close();
+                }
+                
+            }
         }
 
+        public object ExecututarManipulacaoSQL(string nomeProcedimentoOuStringSQL)
+        {
+            NpgsqlConnection npgsqlconnection = null;
+            try
+            {
+                //Criar Conexão
+                npgsqlconnection = Conexao;
+                //Abrir Conexão
+                npgsqlconnection.Open();
+                NpgsqlCommand npgsqlCommand = npgsqlconnection.CreateCommand();
 
+                //Adicionar os Parametros no Commando
+               
+                npgsqlCommand.CommandText = nomeProcedimentoOuStringSQL;
+                npgsqlCommand.CommandTimeout = 7200;//Duas Horas (EM SEGUNDOS)
+
+                return npgsqlCommand.ExecuteScalar();
+            }
+            catch (NpgsqlException ex)
+            {
+                throw new Exception($"Verificar os Seguintes Problemas na Camada de AcessoDadosPostgreSQL Executar Manipulação SQL Normal...");
+            }
+            finally
+            {
+
+                if (npgsqlconnection.State == ConnectionState.Open)
+                {
+                    npgsqlconnection.Close();
+                }
+            }
+        }
 
     }
 }

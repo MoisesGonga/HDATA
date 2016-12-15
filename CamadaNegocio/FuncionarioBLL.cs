@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CamadaNegocio
 {
-    class ConctactioBLL
+    public class FuncionarioBLL
     {
     }
 }

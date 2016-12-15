@@ -49,7 +49,6 @@ namespace HDATA.Views
             pagetransitioncontrol.TransitionType = PageTransitionType.Fade;
             pagetransitioncontrol.ShowPage(home);
             this.user = user;
-            
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -57,7 +56,6 @@ namespace HDATA.Views
             {
                 pagetransitioncontrol.TransitionType = PageTransitionType.Fade;
                 pagetransitioncontrol.ShowPage(home);
-                
             }
 
             /*

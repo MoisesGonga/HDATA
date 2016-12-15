@@ -108,18 +108,14 @@ namespace HDATA.Views
             {
 
                 //DataTable dt = AcessoDados.ExecututarConsulta(CommandType.Text, "Select id_diasemana As ID, nome As Nome, nome_abrev As abreviacao from \"DiaSemana\"");
-                DataTable dt = AcessoDados.ExecututarConsulta(CommandType.Text, "select nome as Nome,naturalidade Naturalidade from dados_pessoais_view");
+                //DataTable dt = AcessoDados.ExecututarConsulta(CommandType.Text, "select nome as Nome,naturalidade, idpessoa as id Naturalidade from dados_pessoais_view where idpessoa=1");
+
+                
+                DataTable dt = AcessoDados.ExecututarConsulta(CommandType.Text, "Select idpessoa as id,pais,provincia,municipio,rua from \"Endereco\"");
                 dataGrid1.ItemsSource = dt.AsDataView();
                // text_buscar.ItemsSource = Nomes_;
                // text_buscar.SelectedItem = selectedNomes_;
                 //text_buscar.FilterMode = AutoCompleteFilterMode.Contains;
-
-
-
-
-
-
-
             }
             catch (NpgsqlException ex)
             {

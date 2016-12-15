@@ -134,6 +134,7 @@
     <Compile Include="NavigationService.cs" />
     <Compile Include="Prescricao.cs" />
     <Compile Include="Tipo_Enumerador.cs" />
+    <Compile Include="trechos_de_codigos.cs" />
     <Compile Include="Views\Cadastro_Paciente.xaml.cs">
       <DependentUpon>Cadastro_Paciente.xaml</DependentUpon>
     </Compile>

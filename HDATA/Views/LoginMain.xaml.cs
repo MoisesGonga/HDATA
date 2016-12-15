@@ -1,22 +1,11 @@
 ﻿using CamadaNegocio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using CamadaObjectoTransferecia;
-using System.Data;
-using System.Windows.Threading;
+using System;
 
 namespace HDATA.Views
 {
@@ -25,11 +14,13 @@ namespace HDATA.Views
     /// </summary>
     public partial class LoginMain : Window
     {
-        Centro_Hemodialise centro_hemodialise;
+        //Centro_Hemodialise centro_hemodialise;
+        UsuarioBLL usuarioBLL;
         public LoginMain()
         {
             InitializeComponent();
-            centro_hemodialise = new Centro_Hemodialise();
+            
+            usuarioBLL = new UsuarioBLL();
         }
 
         private void Border_DragOver(object sender, DragEventArgs e)
@@ -49,8 +40,6 @@ namespace HDATA.Views
 
         private void sucessButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            
-            
             
         }
 
@@ -104,12 +93,11 @@ namespace HDATA.Views
                 Usuario usuario = new Usuario();
                 usuario.NomeUsuario = txt_login.Text;
                 usuario.PalavraPasse = txt_senha.Text;
-                usuario = centro_hemodialise.AutenticarUsuario(usuario);
-//DataRow user = centro_hemodialise.AutenticarUsuario(txt_login.Text, txt_senha.Text);
+                usuario = usuarioBLL.AutenticarUsuario(usuario);
                 if (txt_login.Text == "Moises" && txt_senha.Text == "123#")
                 {
                     VisualSucesso("Moises");
-                    await Task.Delay(3000);
+                    await Task.Delay(2000);
                     txt_login.Text = "";
                     txt_senha.Text = "";
                     this.Visibility = Visibility.Hidden;
@@ -119,12 +107,29 @@ namespace HDATA.Views
                 else if (usuario != null && usuario.NomeUsuario.Equals(txt_login.Text) && usuario.PalavraPasse.Equals(txt_senha.Text))
                 {
                     VisualSucesso(usuario.NomeUsuario);
-                    await Task.Delay(3000);
-
+                    await Task.Delay(2000);
                     txt_login.Text = "";
                     txt_senha.Text = "";
-                    this.Visibility = Visibility.Hidden;
-                    Abrir_JanelaPrincipal(usuario);
+                    MainWindow main = new MainWindow(usuario);
+                    try
+                    {
+                        ContactoBLL contBLL = new ContactoBLL();
+                        //MessageBox.Show(endBLL.AlterarEndereco(new Endereco(3, "Cuba", "Habana", "Gaunabaz", "Fidel de Castro Hero!")));
+                        //MessageBox.Show(contBLL.AlterarContacto(new Contacto(3,"945216547"," vidalinho@gmail.com","+244945648421","Victor António")));
+                        PessoaBLL pBLL = new PessoaBLL();
+                        Paciente pc = new Paciente("Moisés Daniel Gonga", "Daniel Gonga", "Joana Caculo Dala", "Luanda", "Angolana", new DateTime(1995, 01, 26), EnumEstadoCivil.Solteiro, EnumGenero.Masculino, "004002082LA034", "Técnico Médio de Informatica", new Contacto("+244941808111", "moitimdg95@gmail.com", "+244922095655", "Daniela António"), new Endereco("Angola", "Luanda", "Luanda", "Rua Dr. António Agostinho Neto"), "H-15-2016", DateTime.Now.Date, "Dra. Mara", new DateTime(2008, 04, 24), "Negra", new Proveniencia(1), "Ministério das Telecomunicações", "TERM Nº 125/2016");
+                        MessageBox.Show(pBLL.CadastrarPessoa(pc)+"");
+                        
+                        //MessageBox.Show(contBLL.AlterarContacto(new Contacto(3,"945216547"," vidalinho@gmail.com","+244945648421","Victor António")));
+                        //endereco = new Endereco(4, "España", "Madrid", "Gaunabaz", "Fidel de Castro Hero!");
+                    }
+                    catch (System.Exception ex)
+                    {
+                        throw new System.Exception(ex.Message);
+                    }
+                    this.Close();
+                    main.ShowDialog();
+
                 }
                 else
                 {

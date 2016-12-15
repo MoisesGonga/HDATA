@@ -40,11 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcessoDadosBLL.cs" />
     <Compile Include="Centro_Hemodialise.cs" />
-    <Compile Include="ConctactioBLL.cs" />
+    <Compile Include="ContactoBLL.cs" />
+    <Compile Include="EnderecoBLL.cs" />
+    <Compile Include="FuncionarioBLL.cs" />
     <Compile Include="PacienteBLL.cs" />
     <Compile Include="PessoaBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProvenienciaBLL.cs" />
     <Compile Include="UsuarioBLL.cs" />
   </ItemGroup>
   <ItemGroup>

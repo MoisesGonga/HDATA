@@ -25,10 +25,10 @@
         <DataGrid x:Name="dataGrid1" RowHeight="24"  AutoGenerateColumns="False" AlternatingRowBackground="#EFEFEF" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" Width="Auto" SelectionChanged="dataGrid1_SelectionChanged" HorizontalGridLinesBrush="#3F3F46" VerticalGridLinesBrush="{x:Null}" FontSize="14" VerticalContentAlignment="Stretch" Cursor="Hand">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID CENTRO" Binding="{Binding id}" Width="AUTO"/>
-                <DataGridTextColumn Header="NRº PRONTUÁRIO HOSPITAL" Binding="{Binding nome}"/>
-                <DataGridTextColumn Header="NOME PACIENTE" Binding="{Binding nome}"/>
-                <DataGridTextColumn Header="TIPO INSUFICIÊNCIA" Binding="{Binding nome}"/>
-                <DataGridTextColumn Header="DATA ENTRADA" Binding="{Binding nome}"/>
+                <DataGridTextColumn Header="NRº PRONTUÁRIO HOSPITAL" Binding="{Binding pais}"/>
+                <DataGridTextColumn Header="NOME PACIENTE" Binding="{Binding provincia}"/>
+                <DataGridTextColumn Header="TIPO INSUFICIÊNCIA" Binding="{Binding municipio}"/>
+                <DataGridTextColumn Header="DATA ENTRADA" Binding="{Binding rua}"/>
                 <DataGridTextColumn Header="DATA INICIO TRATAMENTO" Binding="{Binding nome}"/>
                 <DataGridTextColumn Header="Nº BILHETE IDENTIDADE" Binding="{Binding nome}"/>
                 <DataGridTextColumn Header="NOME ENTIDADE RESPONSÁVEL" Binding="{Binding nome}"/>

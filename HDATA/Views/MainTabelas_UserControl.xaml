@@ -93,7 +93,6 @@
                         <Button x:Name="btn_actualizar"  Content="Actualizar"  Width="100" FontWeight="DemiBold" Style="{DynamicResource ButtonStyleFlatHDATA}" Foreground="White" Margin="0,0,10,0" Click="btn_actualizar_Click" />
 
                     </StackPanel>
-                    <ComboBox x:Name="comboBox" SelectedValuePath="{Binding Id_Proveniencia}"  DisplayMemberPath="{Binding Path=Proveniencia}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="236" SelectionChanged="comboBox_SelectionChanged"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tab_2" Header="MATERIAIS" Width="290" Padding="5" Cursor="Hand">

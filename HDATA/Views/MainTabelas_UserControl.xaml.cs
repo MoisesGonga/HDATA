@@ -23,57 +23,32 @@ namespace HDATA.Views
     /// </summary>
     public partial class MainTabelas_UserControl : UserControl
     {
-        Centro_Hemodialise centroHemodialise;
-        EnumTipoOperacao_Manipulacao tipo_Op;
+        
+        ProvenienciaBLL provenienciaBLL;
+        EnumTipoOperacao_Manipulacao tipo_Operacao_Proveniencia;
         Proveniencia selectedProveniencia;
         List<Proveniencia> ListaProveniencia;
-        int i = 0;
         public MainTabelas_UserControl()
         {
             InitializeComponent();
-            this.centroHemodialise = new Centro_Hemodialise();
-            tipo_Op = EnumTipoOperacao_Manipulacao.Cadastrar;
-            CarregarDadosProveniencia();
+            provenienciaBLL = new ProvenienciaBLL();
+            tipo_Operacao_Proveniencia = EnumTipoOperacao_Manipulacao.Cadastrar;
             selectedProveniencia = new Proveniencia();
-            ListaProveniencia = CarregarDadosProveniencia();
-            //comboBox.ItemsSource = ListaProveniencia;
-
-
-
+            CarregarDadosListaProveniencia();
         }
 
         
 
-        public List<Proveniencia> CarregarDadosProveniencia()
+        public void CarregarDadosListaProveniencia()
         {
-            ListaProveniencia = centroHemodialise.ListaProveniencia();
+            ListaProveniencia = provenienciaBLL.ListarProveniencia();
             this.listview_proveniencia.ItemsSource = null;
             this.listview_proveniencia.ItemsSource = ListaProveniencia;
-
-            
-            
-            comboBox.ItemsSource = ListaProveniencia;
-            //comboBox.Items.Add("");
-            //comboBox.va
-                //comboBox.Items.Add(item.Nome_Proveniencia);
-           //comboBox.SelectedValuePath = item.Id_Proveniencia.ToString();
-           
-            //comboBox.ItemsSource = ListaProveniencia;
-            return ListaProveniencia;
-            
         }
 
         private int BuscarProvenienciaNaLista(string nomeProveniecia)
         {
-            foreach (Proveniencia item in ListaProveniencia)
-            {
-                if (item.Nome_Proveniencia == nomeProveniecia)
-                {
-                    return item.Id_Proveniencia;
-                }
-            }
-
-            return -1;
+            return 0;
         }
 
         private void tab_1_MouseDown(object sender, MouseButtonEventArgs e)
@@ -83,7 +58,7 @@ namespace HDATA.Views
 
         private void btn_actualizar_Click(object sender, RoutedEventArgs e)
         {
-            CarregarDadosProveniencia();
+            CarregarDadosListaProveniencia();
         }
 
         private void listview_proveniencia_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -108,8 +83,8 @@ namespace HDATA.Views
                 selectedProveniencia = listview_proveniencia.SelectedItem as Proveniencia;
                 txt_nome_proveniencia.Text = selectedProveniencia.Nome_Proveniencia;
                 txt_descricao_proveniencia.Text = selectedProveniencia.Descricao;
-                lbl_notificacao.Content += tipo_Op.ToString();
-                this.tipo_Op = EnumTipoOperacao_Manipulacao.Actualizar;
+                lbl_notificacao.Content += tipo_Operacao_Proveniencia.ToString();
+                this.tipo_Operacao_Proveniencia = EnumTipoOperacao_Manipulacao.Actualizar;
                 
             }
         }
@@ -182,7 +157,6 @@ namespace HDATA.Views
             icon_exclamation_descricao.Visibility = Visibility.Hidden;
             lbl_notificacao.Visibility = Visibility.Hidden;
         }
-
        
         private void btn_salvar_Click(object sender, RoutedEventArgs e)
         {
@@ -191,25 +165,24 @@ namespace HDATA.Views
             {
 
 
-            if (tipo_Op == EnumTipoOperacao_Manipulacao.Cadastrar)
+            if (tipo_Operacao_Proveniencia == EnumTipoOperacao_Manipulacao.Cadastrar)
             {
                     p = new Proveniencia(txt_nome_proveniencia.Text.Trim(), txt_descricao_proveniencia.Text.Trim());
-                    MessageBox.Show(centroHemodialise.CadastrarProveniencia(p).ToString());
+                    MessageBox.Show(provenienciaBLL.CadastrarProveniencia(p).ToString());
                     NotificacaoLabel(0, selectedProveniencia);
-                    CarregarDadosProveniencia();
+                    CarregarDadosListaProveniencia();
                     ProvenienciaLimparTextBox();
             }
             else
             {
-                    
                     p = new Proveniencia(selectedProveniencia.Id_Proveniencia, txt_nome_proveniencia.Text.Trim(), txt_descricao_proveniencia.Text.Trim());
-                    centroHemodialise.ActualizarProveniencia(p);
+                    provenienciaBLL.ActualizarProveniencia(p);
                     NotificacaoLabel(1, p);
-                    CarregarDadosProveniencia();
+                    CarregarDadosListaProveniencia();
                     ProvenienciaLimparTextBox();
-                    tipo_Op = EnumTipoOperacao_Manipulacao.Cadastrar;
+                    tipo_Operacao_Proveniencia = EnumTipoOperacao_Manipulacao.Cadastrar;
             }
-            }
+           }
         }
 
         private void btn_eliminar_Click(object sender, RoutedEventArgs e)
@@ -224,13 +197,13 @@ namespace HDATA.Views
                 this.Effect = blur;
                 if (MessageBox.Show($"Tem Certeza que pretende eliminar o item {p.Nome_Proveniencia}?", "Sair", MessageBoxButton.YesNo, MessageBoxImage.Question).Equals(MessageBoxResult.Yes))
                 {
-                    centroHemodialise.EliminarProveniencia(p);
+                    provenienciaBLL.EliminarProveniencia(p);
                 }
                 this.Effect = null;
                 this.Background = current;
                 
                 NotificacaoLabel(2,p);
-                CarregarDadosProveniencia();
+                CarregarDadosListaProveniencia();
             }
         }
 
@@ -264,10 +237,6 @@ namespace HDATA.Views
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (comboBox.SelectedItem != null)
-            {
-                MessageBox.Show(comboBox.SelectedValue.ToString()+ " - " +BuscarProvenienciaNaLista(comboBox.SelectedValue.ToString()) + " - "+ comboBox.SelectedValuePath);
-            }
             
         }
 

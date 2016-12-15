@@ -15,6 +15,7 @@ namespace CamadaObjectoTransferecia
         public Pessoa(int id_pessoa, string nome, string nome_pai, string nome_mae, string naturalidade, string nacionalidae, DateTime data_nasc, EnumEstadoCivil estado_civil, EnumGenero genero_, string num_bi, string habilitacao_literaria,Contacto contacto, Endereco endereco)
         {
             this.Id_pessoa = id_pessoa;
+            this.Nome = nome;
             this.Nome_pai = nome_pai;
             this.Nome_mae = nome_mae;
             this.Naturalidade = naturalidade;
@@ -30,6 +31,7 @@ namespace CamadaObjectoTransferecia
 
         public Pessoa( string nome, string nome_pai, string nome_mae, string naturalidade, string nacionalidae, DateTime data_nasc, EnumEstadoCivil estado_civil, EnumGenero genero_, string num_bi, string habilitacao_literaria, Contacto contacto, Endereco endereco)
         {
+            this.Nome = nome;
             this.Nome_pai = nome_pai;
             this.Nome_mae = nome_mae;
             this.Naturalidade = naturalidade;

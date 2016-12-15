@@ -27,6 +27,7 @@ namespace HDATA.Views
         private EnumTipoOperacao_Manipulacao tipo_operacao;
         private MainPaciente_UserControl mainPaciente_UserControl;
         private Centro_Hemodialise centro_Hemodialise;
+        private ProvenienciaBLL provenienciaBLL;
         
 
         public Cadastro_Paciente(Paciente p, EnumTipoOperacao_Manipulacao operacao, MainPaciente_UserControl mainPaciente_UserControl)
@@ -38,6 +39,7 @@ namespace HDATA.Views
             this.tipo_operacao = operacao;
             this.mainPaciente_UserControl = mainPaciente_UserControl;
             this.centro_Hemodialise = new Centro_Hemodialise();
+            provenienciaBLL = new ProvenienciaBLL();
 
             CarregarDados(tipo_operacao);
         }
@@ -146,7 +148,7 @@ namespace HDATA.Views
                     estado_civil = EnumEstadoCivil.Companheiro;
                 }
 
-                Paciente paciente = new Paciente(txt_nome_pessoa.Text, txt_nome_pai.Text, txt_nome_mae.Text, txt_naturalidade.Text, txt_nacionalidade.Text, Date_Data_nascimento.SelectedDate.Value, estado_civil, genero, txt_bilhete_identidade.Text, txt_habilitacao_literaria.Text, new Contacto(txt_telefone_1.Text, txt_email.Text, txt_telefone_parente.Text, txt_nome_parente.Text), new Endereco(txt_pais.Text, txt_municipio.Text, txt_rua.Text), txt_identificacao_hp.Text, date_Data_Inicio_Tratamento_Centro.SelectedDate.Value, txt_medico_enviou.Text, Date_Data_Inicio_Tratamento.SelectedDate.Value, cmb_raca.Text, new Proveniencia(Convert.ToInt32(cmb_proveniencia.SelectedValuePath)), txt_entidade_responsavel.Text,txt_nr_term_responsabilidade.Text);
+                Paciente paciente = new Paciente(txt_nome_pessoa.Text, txt_nome_pai.Text, txt_nome_mae.Text, txt_naturalidade.Text, txt_nacionalidade.Text, Date_Data_nascimento.SelectedDate.Value, estado_civil, genero, txt_bilhete_identidade.Text, txt_habilitacao_literaria.Text, new Contacto(txt_telefone_1.Text, txt_email.Text, txt_telefone_parente.Text, txt_nome_parente.Text), new Endereco(txt_pais.Text,txt_provincia.Text, txt_municipio.Text, txt_rua.Text), txt_identificacao_hp.Text, date_Data_Inicio_Tratamento_Centro.SelectedDate.Value, txt_medico_enviou.Text, Date_Data_Inicio_Tratamento.SelectedDate.Value, cmb_raca.Text, new Proveniencia(Convert.ToInt32(cmb_proveniencia.SelectedValuePath)), txt_entidade_responsavel.Text,txt_nr_term_responsabilidade.Text);
                 paciente.Id_pessoa =  centro_Hemodialise.CadastrarPaciente(paciente);
                 txt_IdCentroHD.Text = paciente.Id_pessoa.ToString();
             }
@@ -229,7 +231,7 @@ namespace HDATA.Views
             cmb_estado_civil.SelectedIndex = 0;
             cmb_raca.ItemsSource = Enum.GetValues(typeof(EnumRaca));
             cmb_raca.SelectedIndex = 0;
-            cmb_proveniencia.ItemsSource =  centro_Hemodialise.ListaProveniencia();
+            cmb_proveniencia.ItemsSource = provenienciaBLL.ListarProveniencia();
             cmb_proveniencia.SelectedValuePath = "Id_Proveniencia";
             cmb_proveniencia.SelectedIndex = 0;
             //

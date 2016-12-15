@@ -8,7 +8,7 @@ namespace CamadaObjectoTransferecia
 {
     public class Endereco
     {
-        public Endereco (int idpessoa, string pais, string municipio, string rua)
+        public Endereco (int idpessoa, string pais,string provincia, string municipio, string rua)
         {
             this.idpessoa = idpessoa;
             this.pais = pais;
@@ -16,7 +16,7 @@ namespace CamadaObjectoTransferecia
             this.municipio = municipio;
             this.rua = rua;
         }
-        public Endereco(string pais, string municipio, string rua)
+        public Endereco(string pais,string provincia, string municipio, string rua)
         {
             this.idpessoa = idpessoa;
             this.pais = pais;

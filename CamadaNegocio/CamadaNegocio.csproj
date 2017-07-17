@@ -29,6 +29,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -41,14 +45,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcessoDadosBLL.cs" />
+    <Compile Include="AcessoVascularBLL.cs" />
     <Compile Include="Centro_Hemodialise.cs" />
     <Compile Include="ContactoBLL.cs" />
+    <Compile Include="CriptorafiaMD5.cs" />
+    <Compile Include="DiaSemanaBLL.cs" />
     <Compile Include="EnderecoBLL.cs" />
+    <Compile Include="EscalaBLL.cs" />
     <Compile Include="FuncionarioBLL.cs" />
+    <Compile Include="MaterialBLL.cs" />
+    <Compile Include="MedicamentoBLL.cs" />
     <Compile Include="PacienteBLL.cs" />
     <Compile Include="PessoaBLL.cs" />
+    <Compile Include="PrescricaoBLL.cs" />
+    <Compile Include="Prescricao_Material_BLL.cs" />
+    <Compile Include="Prescricao_Medicamento_BLL.cs" />
+    <Compile Include="Prescricao_Sal_Mineral_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProvenienciaBLL.cs" />
+    <Compile Include="RegistoHemodialiseBLL.cs" />
+    <Compile Include="SalaBLL.cs" />
+    <Compile Include="Sal_MineralBLL.cs" />
+    <Compile Include="TipoAcessoVascularBLL.cs" />
     <Compile Include="UsuarioBLL.cs" />
   </ItemGroup>
   <ItemGroup>

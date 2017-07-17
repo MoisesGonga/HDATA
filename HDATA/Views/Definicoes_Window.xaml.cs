@@ -1,4 +1,5 @@
 ﻿using CamadaNegocio;
+using CamadaObjectoTransferecia;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,26 +21,29 @@ namespace HDATA.Views
     /// </summary>
     public partial class Definicoes_Window : Window
     {
-        Centro_Hemodialise centro_hemodialise;
-
+        
+        Usuario user;
         public Definicoes_Window()
         {
             InitializeComponent();
+            
+            
         }
 
-        public Definicoes_Window(string tipo_funcionario)
+        public Definicoes_Window(Usuario us)
         {
+            this.user = us;
             InitializeComponent();
-            if (tipo_funcionario=="Administradorx")
+            if (user.Perfil_Usuario=="Administrador")
             {
-                NavigationService.GridNavigationUsercontrol(grid_principal, new Definicoes_UserControl(centro_hemodialise));
+                NavigationService.GridNavigationUsercontrol(grid_principal, new Definicoes_UserControl(user));
             }
             else
             {
                 //Height = "360.448" Width = "536.194"
-                this.Height = 500;
-                this.Width =564;
-                NavigationService.GridNavigationUsercontrol(grid_principal, new DefinicaoContaUtilizador_UserControl(centro_hemodialise));
+                //this.Height = 500;
+                //this.Width =564;
+                NavigationService.GridNavigationUsercontrol(grid_principal, new Definicoes_UserControl(user));
             }
         }
 

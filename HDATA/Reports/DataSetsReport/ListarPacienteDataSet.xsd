@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ListarPacienteDataSet" targetNamespace="http://tempuri.org/ListarPacienteDataSet.xsd" xmlns:mstns="http://tempuri.org/ListarPacienteDataSet.xsd" xmlns="http://tempuri.org/ListarPacienteDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ListarPacienteDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ListarPacienteDataSet" msprop:Generator_UserDSName="ListarPacienteDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Prontuario_Paciente" msprop:Generator_TableClassName="Prontuario_PacienteDataTable" msprop:Generator_TableVarName="tableProntuario_Paciente" msprop:Generator_RowChangedName="Prontuario_PacienteRowChanged" msprop:Generator_TablePropName="Prontuario_Paciente" msprop:Generator_RowDeletingName="Prontuario_PacienteRowDeleting" msprop:Generator_RowChangingName="Prontuario_PacienteRowChanging" msprop:Generator_RowEvHandlerName="Prontuario_PacienteRowChangeEventHandler" msprop:Generator_RowDeletedName="Prontuario_PacienteRowDeleted" msprop:Generator_RowClassName="Prontuario_PacienteRow" msprop:Generator_UserTableName="Prontuario_Paciente" msprop:Generator_RowEvArgName="Prontuario_PacienteRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idpessoa" msprop:Generator_ColumnVarNameInTable="columnidpessoa" msprop:Generator_ColumnPropNameInRow="idpessoa" msprop:Generator_ColumnPropNameInTable="idpessoaColumn" msprop:Generator_UserColumnName="idpessoa" type="xs:string" />
+              <xs:element name="identificacao_hp" msprop:Generator_ColumnVarNameInTable="columnidentificacao_hp" msprop:Generator_ColumnPropNameInRow="identificacao_hp" msprop:Generator_ColumnPropNameInTable="identificacao_hpColumn" msprop:Generator_UserColumnName="identificacao_hp" type="xs:string" minOccurs="0" />
+              <xs:element name="nome" msprop:Generator_ColumnVarNameInTable="columnnome" msprop:Generator_ColumnPropNameInRow="nome" msprop:Generator_ColumnPropNameInTable="nomeColumn" msprop:Generator_UserColumnName="nome" type="xs:string" minOccurs="0" />
+              <xs:element name="datanasc" msprop:Generator_ColumnVarNameInTable="columndatanasc" msprop:Generator_ColumnPropNameInRow="datanasc" msprop:Generator_ColumnPropNameInTable="datanascColumn" msprop:Generator_UserColumnName="datanasc" type="xs:string" minOccurs="0" />
+              <xs:element name="nacionalidade" msprop:Generator_ColumnVarNameInTable="columnnacionalidade" msprop:Generator_ColumnPropNameInRow="nacionalidade" msprop:Generator_ColumnPropNameInTable="nacionalidadeColumn" msprop:Generator_UserColumnName="nacionalidade" type="xs:string" minOccurs="0" />
+              <xs:element name="genero" msprop:Generator_ColumnVarNameInTable="columngenero" msprop:Generator_ColumnPropNameInRow="genero" msprop:Generator_ColumnPropNameInTable="generoColumn" msprop:Generator_UserColumnName="genero" type="xs:string" minOccurs="0" />
+              <xs:element name="num_bi" msprop:Generator_ColumnVarNameInTable="columnnum_bi" msprop:Generator_ColumnPropNameInRow="num_bi" msprop:Generator_ColumnPropNameInTable="num_biColumn" msprop:Generator_UserColumnName="num_bi" type="xs:string" minOccurs="0" />
+              <xs:element name="telefone" msprop:Generator_ColumnVarNameInTable="columntelefone" msprop:Generator_ColumnPropNameInRow="telefone" msprop:Generator_ColumnPropNameInTable="telefoneColumn" msprop:Generator_UserColumnName="telefone" type="xs:string" minOccurs="0" />
+              <xs:element name="data_entrada" msprop:Generator_ColumnVarNameInTable="columndata_entrada" msprop:Generator_ColumnPropNameInRow="data_entrada" msprop:Generator_ColumnPropNameInTable="data_entradaColumn" msprop:Generator_UserColumnName="data_entrada" type="xs:string" minOccurs="0" />
+              <xs:element name="tipo_insuficiencia" msprop:Generator_ColumnVarNameInTable="columntipo_insuficiencia" msprop:Generator_ColumnPropNameInRow="tipo_insuficiencia" msprop:Generator_ColumnPropNameInTable="tipo_insuficienciaColumn" msprop:Generator_UserColumnName="tipo_insuficiencia" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Prontuario_Paciente" />
+      <xs:field xpath="mstns:idpessoa" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

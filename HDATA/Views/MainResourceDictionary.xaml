@@ -2,7 +2,50 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:HDATA.Views">
 
-    
+    <!-- DATAGRID HEADER STYLE-->
+
+    <Style x:Key="HeaderStyle" TargetType="DataGridColumnHeader">
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="FontStretch" Value="Normal"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+        <Setter Property="Background" Value="#E7E7E8" />
+        <Setter Property="Foreground" Value="#3F3F46" />
+        <Setter Property="BorderBrush" Value="#E6E6E6" />
+        <Setter Property="BorderThickness" Value="0 0 1 0" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="Cursor" Value="Hand" />
+    </Style>
+
+    <!-- END DATAGRID HEADER STYLE-->
+
+    <!-- DATAGRID ROW STYLE-->
+
+    <Style x:Key="DataGridRowStyle" TargetType="DataGridRow">
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="FontStretch" Value="Normal"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+        <Setter Property="Foreground" Value="#3F3F46" />
+        <Setter Property="BorderBrush" Value="#C2C2C4" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="Background" Value="#5BAADE"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+    <!-- END DATAGRID ROW STYLE-->
     <!--TABCONTROL HDATA STYLE-->
     <SolidColorBrush x:Key="TabItem.Selected.Background" Color="#FFFFFF"/>
         <SolidColorBrush x:Key="OfficeBorderBrush" Color="#FFD5D7E2"/>

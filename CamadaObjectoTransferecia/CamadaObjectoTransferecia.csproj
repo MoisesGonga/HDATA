@@ -42,27 +42,37 @@
   <ItemGroup>
     <Compile Include="AcessoVascular.cs" />
     <Compile Include="Ala.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Contacto.cs" />
+    <Compile Include="CriptorafiaMD5.cs" />
     <Compile Include="DiaSemana.cs" />
     <Compile Include="Endereco.cs" />
     <Compile Include="Entidade.cs" />
     <Compile Include="Enumeradores.cs" />
+    <Compile Include="Escala.cs" />
+    <Compile Include="Escala_DiaSemana.cs" />
+    <Compile Include="Etiologia.cs" />
     <Compile Include="Funcionario.cs" />
     <Compile Include="Hora_Dialise.cs" />
+    <Compile Include="Material.cs" />
+    <Compile Include="Medicamento.cs" />
     <Compile Include="Paciente.cs" />
+    <Compile Include="Paciente_Etiologia.cs" />
+    <Compile Include="Paciente_Seriologia.cs" />
     <Compile Include="Pessoa.cs" />
+    <Compile Include="Prescricao.cs" />
+    <Compile Include="Prescricao_Material.cs" />
+    <Compile Include="Prescricao_Medicamento.cs" />
+    <Compile Include="Prescricao_Sal_Mineral.cs" />
     <Compile Include="Proveniencia.cs" />
     <Compile Include="RegistoDialise.cs" />
     <Compile Include="Sala.cs" />
+    <Compile Include="Sala_Ala.cs" />
+    <Compile Include="Sal_Mineral.cs" />
     <Compile Include="Seriologia.cs" />
-    <Compile Include="TipoAcesso.cs" />
+    <Compile Include="TipoAcessoVascular.cs" />
     <Compile Include="Turno.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -10,7 +10,7 @@ namespace HDATA
     public class NavigationService
     {
         public static void GridNavigationUsercontrol(Grid grid, UserControl control) {
-            if (grid.Children.Count>0)
+            if (grid.Children.Count>=0)
             {
                 grid.Children.Clear();
                 grid.Children.Add(control);
@@ -18,6 +18,7 @@ namespace HDATA
             }
             else
             {
+                grid.Children.Clear();
                 grid.Children.Add(control);
             }
         }

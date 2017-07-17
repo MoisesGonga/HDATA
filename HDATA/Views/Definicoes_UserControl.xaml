@@ -4,7 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HDATA.Views"
-             mc:Ignorable="d" Height="603.54" Width="1030.14" BorderBrush="#EFEFEF">
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:ControlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+             mc:Ignorable="d" MinHeight="644.965"  MinWidth="1385" BorderBrush="#EFEFEF">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -15,18 +17,245 @@
 
     <Grid>
         <Grid.RowDefinitions>
-
-            <RowDefinition Height="83*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TabControl TabStripPlacement="Left" FontSize="14" Grid.Row="1" Style="{DynamicResource OfficeTabControlStyle}" ItemContainerStyle="{DynamicResource OfficeTabItemStyle}">
-            <TabItem x:Name="tab_0" Header="CONTA DE UTILIZADOR" Width="250" Padding="5" Cursor="Hand">
-                <Grid Background="White">
-                    <local:DefinicaoContaUtilizador_UserControl Margin="80,53,80,184" Loaded="DefinicaoContaUtilizador_UserControl_Loaded"  />
-                </Grid>
+        <TabControl TabStripPlacement="Left" FontSize="14" Style="{DynamicResource OfficeTabControlStyle}" ItemContainerStyle="{DynamicResource OfficeTabItemStyle}" Margin="0,0,10,0">
+            <TabItem x:Name="tab_0" Header="MEU PERFIL" Width="250" Padding="5" Cursor="Hand">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="0">
+                            <Grid Width="1110">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="57"></RowDefinition>
+                                    <RowDefinition Height="50"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="305"></ColumnDefinition>
+                                    <ColumnDefinition Width="260"></ColumnDefinition>
+                                    <ColumnDefinition Width="240"></ColumnDefinition>
+                                    <ColumnDefinition Width="320"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" Grid.Row="0" Margin="0,0,0,0" >
+                                    <Label  Content="IDENTIFICADOR NO CENTRO DE HEMODIÁLISE:" HorizontalAlignment="Left"  Height="30" Margin="10,0,0,0" FontWeight="Normal" />
+                                    <TextBox x:Name="txt_IdEmpresa" IsReadOnly="True" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="138" Margin="10,0,0,0" VerticalContentAlignment="Center" Background="#FFEAEAEA"  />
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1" Grid.ColumnSpan="4">
+                                    <Label Margin="10 0 10 0" Content="Dados Pessoais" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="0" />
+                                    <Separator Margin="10 0 5 0" Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" VerticalAlignment="Center"  Height="8"  />
+                                </StackPanel>
+
+
+                                <Label Content="Nome" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="2" Height="29" Width="49" Margin="10,0,0,0" FontWeight="Normal" />
+                                <TextBox x:Name="txt_nome_admin"    Grid.Row="3"   Margin="10,0,0,0" FontWeight="Normal" VerticalContentAlignment="Center" />
+
+                                <Label Content="Data Nascimento" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="2"  Margin="0,0,0,0" Grid.Column="1" FontWeight="Normal" Height="29" Width="116"/>
+                                <DatePicker x:Name="data_nascimento_admin" Margin="10 0 0 0"  Grid.Row="3" Grid.Column="1"  FontWeight="Normal" Height="30" VerticalAlignment="Center" />
+
+                                <Label Content="Idade" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="2" Grid.Column="2" Height="29" Width="49" Margin="10,0,0,0" FontWeight="Normal" />
+                                <TextBox x:Name="txt_idade_admin"    Grid.Row="3" Grid.Column="2" Margin="10,0,0,0" Width="70" FontWeight="Normal" VerticalContentAlignment="Center" HorizontalAlignment="Left" />
+
+                                <Label Content="Nº Bilhete de Identidade" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="2" Grid.Column="3" Height="28" Margin="10,1,0,1" FontWeight="Normal" Width="162" />
+                                <TextBox x:Name="txt_bi_admin"    Grid.Row="3" Grid.Column="3" Margin="10,0,25,0" FontWeight="Normal" VerticalContentAlignment="Center" />
+
+                                <Label Content="Nome do Pai" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="4" Height="29"  Margin="10,0,0,0" FontWeight="Normal" Width="90" />
+                                <TextBox x:Name="txt_nome_pai_admin"    Grid.Row="5"   Margin="10,0,0,0" FontWeight="Normal" VerticalContentAlignment="Center" />
+
+
+                                <Label Content="Nome da Mãe" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="4" Height="29"  Margin="10,0,0,0" FontWeight="Normal" Width="98" />
+                                <TextBox x:Name="txt_nome_mae_admin"    Grid.Row="5" Grid.Column="1"  Margin="10,0,0,0" FontWeight="Normal" VerticalContentAlignment="Center" />
+
+                                <Label Content="Estado Civil" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="4" Height="29"  Margin="10,0,0,0" FontWeight="Normal" Width="81" />
+                                <ComboBox x:Name="cmb_estado_civil_admin" Grid.Column="2"  Margin="10,0,0,0" Grid.Row="5" FontWeight="Normal" />
+
+                                <Label Content="Naturalidade" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="4" Height="25" Margin="10,0,0,0" Grid.Column="3" FontWeight="Normal" Width="90" />
+                                <TextBox x:Name="txt_naturalidade_admin" Grid.Row="5"   Margin="10,0,25,0" Grid.Column="3" FontWeight="Normal" VerticalContentAlignment="Center" />
+
+                                <Label Content="Nacionalidade" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="6" Height="28"  Margin="10,1,0,1" FontWeight="Normal" Width="98"/>
+                                <TextBox x:Name="txt_nacionalidade_admin"    Grid.Row="7"   Margin="10,0,0,0" FontWeight="Normal" VerticalContentAlignment="Center" />
+
+                                <Label  Content="Genero" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="6" Margin="10,0,0,0" Grid.Column="1" Height="30" Width="56"  FontWeight="Normal" />
+                                <StackPanel Orientation="Horizontal" Grid.Row="7" Margin="10,0,0,0"  Grid.Column="1">
+                                    <RadioButton x:Name="Rb_Genero_M_admin" Content="Masculino" GroupName="rb_genero" HorizontalAlignment="Left" Margin="10,6,0,0" Grid.Row="3" VerticalAlignment="Top" FontWeight="Normal" IsChecked="True"/>
+                                    <RadioButton x:Name="Rb_Genero_F_admin" Content="Femenino" GroupName="rb_genero" HorizontalAlignment="Left" Margin="10,6,0,0" Grid.Row="3" VerticalAlignment="Top" FontWeight="Normal"/>
+                                </StackPanel>
+
+                                <Label Content="Raça" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="6" Margin="10,0,0,0" Grid.Column="2" Height="29" Width="40" FontWeight="Normal" />
+                                <ComboBox x:Name="cmb_raca_admin" Grid.Column="2"  Margin="10,0,0,0" Grid.Row="7" FontWeight="Normal"  />
+
+                                <Label  Content="Habilitação Literária" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="6" Height="25" Margin="10,0,0,0" Grid.Column="3" Width="137" FontWeight="Normal" />
+                                <TextBox x:Name="txt_habilitacao_literaria_admin"    Grid.Row="7"   Margin="10,0,25,0" Grid.Column="3" FontWeight="Normal" VerticalContentAlignment="Center"/>
+
+                                <Label Content="Rua" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="8" Height="28"  Margin="10,1,0,1" FontWeight="Normal" Width="98"/>
+                                <TextBox x:Name="txt_rua_admin"    Grid.Row="9"   Margin="10,0,0,0" FontWeight="Normal" VerticalContentAlignment="Center" />
+
+                                <Label Content="Municipio" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="8" Grid.Column="1" Height="28"  Margin="10,0,0,0" FontWeight="Normal" />
+                                <TextBox x:Name="txt_municipio_admin"    Grid.Row="9" Grid.Column="1"   Margin="10,0,0,0" FontWeight="Normal" VerticalContentAlignment="Center" />
+
+                                <Label Content="Província" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="8" Grid.Column="2" Height="28"  Margin="10,1,0,1" FontWeight="Normal" />
+                                <TextBox x:Name="txt_provincia_admin"    Grid.Row="9" Grid.Column="2"   Margin="10,0,0,0" FontWeight="Normal" VerticalContentAlignment="Center" />
+
+                                <Label Content="País" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Column="3" Grid.Row="8" Height="28"  Margin="10,0,10,0" FontWeight="Normal" />
+                                <TextBox x:Name="txt_pais_admin"    Grid.Row="9" Grid.Column="3" Margin="10,0,25,0" FontWeight="Normal" VerticalContentAlignment="Center" />
+
+                                <Label Content="Telefone" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="10" Height="28"  Margin="10,1,0,1" FontWeight="Normal" Width="98"/>
+                                <TextBox x:Name="txt_telefone_admin"    Grid.Row="11"   Margin="10,0,0,0" FontWeight="Normal" VerticalContentAlignment="Center" />
+
+                                <Label Content="Telefone Parente" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="10" Grid.Column="1" Height="28"  Margin="10,0,0,0" FontWeight="Normal" />
+                                <TextBox x:Name="txt_tlf_parente_admin"    Grid.Row="11" Grid.Column="1"   Margin="10,0,0,0" FontWeight="Normal" VerticalContentAlignment="Center" />
+
+                                <Label Content="Nome Parente" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="10" Grid.Column="2" Height="28"  Margin="10,1,0,1" FontWeight="Normal" />
+                                <TextBox x:Name="txt_nome_parente_admin"    Grid.Row="11" Grid.Column="2"   Margin="10,0,0,0" FontWeight="Normal" VerticalContentAlignment="Center" />
+
+                                <Label Content="Email" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Column="3" Grid.Row="10" Height="28"  Margin="10,0,10,0" FontWeight="Normal" />
+                                <TextBox x:Name="txt_email_admin"    Grid.Row="11" Grid.Column="3" Margin="10,0,25,0" FontWeight="Normal" VerticalContentAlignment="Center" />
+
+
+
+                            </Grid>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="1">
+                            <Grid Width="1110">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="65"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="27"/>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <StackPanel Margin="0 10 0 0" Grid.Row="0">
+                                    <Label Margin="10 0 0 0" Content="Dados Autenticação" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="0" />
+                                    <Separator Margin="10 0 0 0" Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" VerticalAlignment="Center"  Height="18"  />
+                                </StackPanel>
+                                <Label Content="Email" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Column="3" Grid.Row="10" Height="28"  Margin="10,0,10,0" FontWeight="Normal" />
+                                <TextBox x:Name="txt__admin"    Grid.Row="11" Grid.Column="3" Margin="10,0,25,0" FontWeight="Normal" VerticalContentAlignment="Center" />
+
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                </ScrollViewer>
             </TabItem>
-            <TabItem x:Name="tab_1" Header="GERIR UTILIZADORES" Width="250" Padding="5" Cursor="Hand">
-                <Grid Background="White"/>
+            <TabItem x:Name="tab_gerir_usuario" Header="GERIR UTILIZADORES" Width="250" Padding="0" Cursor="Hand">
+                <TabControl Name="main_tab_gerir_utilizadores" Style="{DynamicResource OfficeTabControlStyle}" SelectionChanged="main_tab_gerir_utilizadores_SelectionChanged">
+                    <TabItem x:Name="tab_cadastro_funcionario" Header="CADASTRAR | ACTUALIZAR" HorizontalContentAlignment="Center" Width="250" Padding="5" Cursor="Hand" Style="{DynamicResource OfficeTabItemStyle}">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                            <Grid Background="White">
+                                <Grid Background="White" Margin="0" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="252"/>
+                                        <ColumnDefinition Width="217"/>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition Width="330"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="44"/>
+                                        <RowDefinition Height="57"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="27"/>
+                                        <RowDefinition Height="27"/>
+                                        <RowDefinition Height="27"/>
+                                        <RowDefinition Height="27"/>
+                                        <RowDefinition Height="27"/>
+                                        <RowDefinition Height="27"/>
+                                        <RowDefinition Height="27"/>
+                                        <RowDefinition Height="27"/>
+                                        <RowDefinition Height="56"/>
+                                        <RowDefinition Height="61"/>
+                                        <RowDefinition Height="14"/>
+                                        <RowDefinition Height="29"/>
+                                        <RowDefinition Height="32"/>
+                                        <RowDefinition Height="Auto" MinHeight="38"/>
+                                        <RowDefinition Height="0"/>
+                                    </Grid.RowDefinitions>
+                                    <Label x:Name="label3" Content="Nome" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="2" Height="29" Width="49" Margin="0,4,0,0" FontWeight="Normal" Grid.RowSpan="2" />
+                                    <Grid HorizontalAlignment="Left"  VerticalAlignment="Top" Height="0" Width="0" />
+                                    <TextBox x:Name="txt_nome_pessoa"    Grid.Row="3"   Margin="10,0,0,0" FontWeight="Normal" VerticalContentAlignment="Center" TextChanged="txt_nome_pessoa_TextChanged" />
+                                    <DatePicker x:Name="Date_Data_nascimento"  Grid.Row="3" Grid.Column="1" Margin="10,3,35,27" FontWeight="Normal" Height="26" VerticalAlignment="Center" Grid.RowSpan="2" />
+                                    <Label  Content="Data Nascimento" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="2" Height="29" Width="178" Margin="0,4,0,0" Grid.Column="1" FontWeight="Normal" Grid.RowSpan="2"  />
+                                    <Label  Content="Idade" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="2" Height="29" Width="154" Margin="5,4,0,0" Grid.Column="2" FontWeight="Normal" Grid.RowSpan="2"  />
+                                    <TextBox x:Name="txt_idade" IsReadOnly="True" Grid.Row="3"   Margin="10,0,100,0" Grid.Column="2" FontWeight="Normal" VerticalContentAlignment="Center" TextChanged="txt_idade_TextChanged" />
+                                    <Label x:Name="label_Copy2" Content="Genero" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="6" Grid.Column="1" Height="30" Width="56" FontWeight="Normal" Grid.RowSpan="2" />
+                                    <StackPanel Orientation="Horizontal" Grid.Row="7" Margin="10,0,0,0" Grid.ColumnSpan="2" Grid.Column="1">
+                                        <RadioButton x:Name="Rb_Genero_M" Content="Masculino" GroupName="rb_genero" HorizontalAlignment="Left" Margin="10,6,0,0" Grid.Row="3" VerticalAlignment="Top" FontWeight="Normal" IsChecked="True"/>
+                                        <RadioButton x:Name="Rb_Genero_F" Content="Femenino" GroupName="rb_genero" HorizontalAlignment="Left" Margin="10,6,0,0" Grid.Row="3" VerticalAlignment="Top" FontWeight="Normal"/>
+                                    </StackPanel>
+                                    <Label x:Name="label_Copy3" Content="Raça" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="6" Margin="0,0,0,0" Grid.Column="2" Height="29" Width="40" FontWeight="Normal" Grid.RowSpan="2" />
+                                    <ComboBox x:Name="cmb_raca" Grid.Column="2"  Margin="10,0,0,0" Grid.Row="7" FontWeight="Normal" SelectionChanged="cmb_raca_SelectionChanged"  />
+                                    <TextBox x:Name="txt_bilhete_identidade" Grid.Row="3" MaxLength="14"  Margin="10,0,30,0" Grid.Column="3" FontWeight="Normal" VerticalContentAlignment="Center" TextChanged="txt_bilhete_identidade_TextChanged" />
+                                    <Label x:Name="label_Copy4" Content="Nº Bilhete de Identidade"   Grid.Row="2" HorizontalAlignment="Left" Margin="0,4,0,0" Grid.Column="3" Width="167" FontWeight="Normal" />
+                                    <ComboBox x:Name="cmb_estado_civil" Grid.Column="2"  Margin="10,0,0,0" Grid.Row="5" FontWeight="Normal" SelectionChanged="cmb_estado_civil_SelectionChanged" Height="32" VerticalAlignment="Top" Grid.RowSpan="2"  />
+                                    <Label x:Name="label_Copy5" Content="Estado Civil" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="4" Height="29" Margin="5,0,0,0" Grid.Column="2" Width="83" FontWeight="Normal" Grid.RowSpan="2" />
+                                    <Label x:Name="label_Copy6" Content="Naturalidade" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="4" Height="25" Margin="0,0,0,0" Grid.Column="3" Width="93" FontWeight="Normal" />
+                                    <TextBox x:Name="txt_naturalidade"    Grid.Row="5"   Margin="10,0,71,0" Grid.Column="3" FontWeight="Normal" VerticalContentAlignment="Center" TextChanged="txt_naturalidade_TextChanged"/>
+                                    <Label x:Name="label_Copy7" Content="Nacionalidade" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="6" Height="30" Width="101" FontWeight="Normal" Grid.RowSpan="2" />
+                                    <TextBox x:Name="txt_nacionalidade"    Grid.Row="7" Margin="10,0,0,0" FontWeight="Normal" VerticalContentAlignment="Center" TextChanged="txt_nacionalidade_TextChanged" />
+                                    <Label x:Name="label_Copy8" Content="Nome do Pai" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="4" Height="29"  Margin="0,0,0,0" Width="92" FontWeight="Normal" Grid.RowSpan="2"  />
+                                    <TextBox x:Name="txt_nome_pai"    Grid.Row="5"   Margin="10,0,0,0" FontWeight="Normal" VerticalContentAlignment="Center" TextChanged="txt_nome_pai_TextChanged"/>
+                                    <Label x:Name="label_Copy9" Content="Nome da Mãe" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="4" Height="29"  Margin="0,0,0,0" Width="100" FontWeight="Normal" Grid.RowSpan="2"  />
+                                    <TextBox x:Name="txt_nome_mae"    Grid.Row="5" Grid.Column="1"   Margin="10,0,0,0" FontWeight="Normal" VerticalContentAlignment="Center" TextChanged="txt_nome_mae_TextChanged"/>
+                                    <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,0" >
+                                        <Label  Content="IDENTIFICADOR NO CENTRO DE HEMODIÁLISE:" HorizontalAlignment="Left"  Height="30" Margin="10,0,0,0" FontWeight="Normal" />
+                                        <TextBox  IsReadOnly="True" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="138" Margin="10,0,0,0" VerticalContentAlignment="Center" Background="#FFEAEAEA"  />
+                                    </StackPanel>
+                                    <Label  Content="Habilitação Literária" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="6" Height="25" Margin="0,0,0,0" Grid.Column="3" Width="137" FontWeight="Normal" />
+                                    <TextBox x:Name="txt_habilitacao_literaria"    Grid.Row="7"   Margin="10,0,30,0" Grid.Column="3" FontWeight="Normal" VerticalContentAlignment="Center" TextChanged="txt_habilitacao_literaria_TextChanged"/>
+                                    <StackPanel Grid.Row="1" Grid.ColumnSpan="4">
+                                        <Label Margin="10 0 10 0" x:Name="label_Copy15" Content="Dados Pessoais" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="1" />
+                                        <Separator Margin="10 0 10 0" Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" VerticalAlignment="Center"  Height="1"  />
+                                    </StackPanel>
+                                    <Label x:Name="label_Copy14" Content="Rua" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="8" Grid.Column="0" Height="25" Margin="0,0,0,0" Width="34" FontWeight="Normal" />
+                                    <Label x:Name="label_Copy18" Content="Municipio" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="8" Grid.Column="1" FontWeight="Normal" Height="29" Width="71" Grid.RowSpan="2" />
+                                    <Label x:Name="label_Copy19" Content="Província" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="8" Grid.Column="2" Margin="0,0,0,0" Height="29" Width="68" FontWeight="Normal" Grid.RowSpan="2"  />
+                                    <TextBox x:Name="txt_rua"    Grid.Row="9" Margin="10 0 0 0" FontWeight="Normal" VerticalContentAlignment="Center" TextChanged="txt_rua_TextChanged" />
+                                    <TextBox x:Name="txt_municipio"    Grid.Row="9" Margin="10,0,35,0" Grid.Column="1" FontWeight="Normal" VerticalContentAlignment="Center" Foreground="Black" TextChanged="txt_municipio_TextChanged" />
+                                    <TextBox x:Name="txt_provincia"    Grid.Row="8" Margin="10, 0,0,0" Grid.Column="2" FontWeight="Normal" VerticalContentAlignment="Center" TextChanged="txt_provincia_TextChanged" Height="35" VerticalAlignment="Bottom" Grid.RowSpan="2" />
+                                    <Label x:Name="label_Copy17" Content="País" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="8" Grid.Column="3" Margin="10,0,0,0" Height="29" Width="44" FontWeight="Normal" Grid.RowSpan="2" />
+                                    <TextBox x:Name="txt_pais"    Grid.Row="9" Margin="10,0,120,0" Grid.Column="3" FontWeight="Normal" VerticalContentAlignment="Center" TextChanged="txt_pais_TextChanged"/>
+                                    <Label x:Name="label_Copy23" Content="Email" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="9" Grid.Column="3" Margin="10,27,0,1" Height="28" Width="44" FontWeight="Normal" Grid.RowSpan="2" />
+                                    <TextBox x:Name="txt_email"    Grid.Row="11" Margin="10,6,30,25" Grid.Column="3" FontWeight="Normal" VerticalContentAlignment="Top" />
+                                    <StackPanel Grid.Row="11" Grid.ColumnSpan="4" Margin="10,0,0,1" Grid.RowSpan="5">
+                                        <Label Margin="10 0 10 0" x:Name="label_Copy155" Content="Dados Utilizador" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="0" />
+                                        <Separator Margin="10 0 5 0" Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" VerticalAlignment="Center"  Height="8"  />
+                                    </StackPanel>
+                                    <TextBox x:Name="txt_p"    Grid.Row="16" Margin="10,1,0,6" FontWeight="Normal" VerticalContentAlignment="Center" TextChanged="txt_rua_TextChanged" />
+                                </Grid>
+                            </Grid>
+                        </ScrollViewer>
+                    </TabItem>
+
+                    <TabItem x:Name="tab_consulta_funcionario" Header="CONSULTAR" HorizontalContentAlignment="Center" Width="250" Padding="5" Cursor="Hand" Style="{DynamicResource OfficeTabItemStyle}">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="13*"/>
+                                </Grid.RowDefinitions>
+
+                            </Grid>
+                        </ScrollViewer>
+                    </TabItem>
+
+                </TabControl>
             </TabItem>
         </TabControl>
 

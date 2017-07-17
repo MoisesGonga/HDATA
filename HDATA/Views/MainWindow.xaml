@@ -7,8 +7,15 @@
          xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:pageTransitions="clr-namespace:WpfPageTransitions;assembly=WpfPageTransitions"
         mc:Ignorable="d"
-        Title="SISTEMA DE GESTÃO DE PACIENTES DO CENTRO DE HEMODIÁLISE - HDATA" Background="#EFEFEF" Height="Auto" Width="902.554" WindowStartupLocation="CenterScreen" WindowState="Maximized" d:DesignHeight="452.54" MinHeight="516" MinWidth="970" FontFamily="Source Sans Pro" WindowStyle="None">
+        
+        
+        xmlns:Metro="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:Metrols="http://metro.mahapps.com/winfx/xaml/shared"            
+        Title="SISTEMA DE GESTÃO DE PACIENTES - CENTRO DE HEMODIÁLISE - HDATA" Background="#EFEFEF" Height="Auto" Width="902.554" WindowStartupLocation="CenterScreen" WindowState="Maximized" d:DesignHeight="452.54" MinHeight="516" MinWidth="970" FontFamily="Source Sans Pro" BorderThickness="0" WindowStyle="None">
     <Window.Resources>
+
+
+
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -64,6 +71,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
     </Window.Resources>
     <Grid Name="main_grid">
         <Grid.ColumnDefinitions>
@@ -78,20 +86,25 @@
 
         <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Width="AUTO" Orientation="Horizontal" Background="#2980B9">
             <Button Content="Home" BorderThickness="0" Foreground="White" Background="#2980B9" BorderBrush="#2980B9" Width="90" Margin="20 2 0 2"  FontFamily="Source Sans Pro" FontSize="16" Click="Button_Click" Style="{DynamicResource ButtonStyleHDATA}" Cursor="Hand"></Button>
-            <Button Content="Agenda" BorderThickness="0" Foreground="White" Background="#2980B9" BorderBrush="#2980B9" Width="90" Margin="20 2 0 2" FontSize="16" FontFamily="Source Sans Pro" Style="{DynamicResource ButtonStyleHDATA}" Cursor="Hand"></Button>
+
             <Button Content="Paciente" BorderThickness="0" Foreground="White" Background="#2980B9" BorderBrush="#2980B9" Width="90" Margin="20 2 0 2" FontFamily="Source Sans Pro" FontSize="16" Click="Button_Click_1" Style="{DynamicResource ButtonStyleHDATA}" Cursor="Hand"></Button>
-            <Button Content="Relatório" BorderThickness="0" Foreground="White" Background="#2980B9" BorderBrush="#2980B9" Width="90" Margin="20 2 0 2" FontSize="16" FontFamily="Source Sans Pro" Style="{DynamicResource ButtonStyleHDATA}" Cursor="Hand"></Button>
+            <Button Name="sessao_hemodialise" Content="Sessão  HD" BorderThickness="0" Foreground="White" Background="#2980B9" BorderBrush="#2980B9" Width="90" Margin="20 2 0 2" FontSize="16" FontFamily="Source Sans Pro" Style="{DynamicResource ButtonStyleHDATA}" Cursor="Hand" Click="sessao_hemodialise_Click"></Button>
             <Button x:Name="btn_Tabelas" Content="Tabelas" BorderThickness="0" Foreground="White" BorderBrush="#2980B9" Width="90" Margin="20 2 0 2" FontFamily="Source Sans Pro" Click="btn_Tabelas_Click" Style="{DynamicResource ButtonStyleHDATA}" FontSize="16" Cursor="Hand"></Button>
+            <Button Name="relatorios" Content="Relatório" BorderThickness="0" Foreground="White" Background="#2980B9" BorderBrush="#2980B9" Width="90" Margin="20 2 0 2" FontSize="16" FontFamily="Source Sans Pro" Style="{DynamicResource ButtonStyleHDATA}" Cursor="Hand" Click="relatorios_Click"></Button>
             <Button Name="btn_ajuda" Click="btn_ajuda_Click" Content="Ajuda" BorderThickness="0" Foreground="White" Background="#2980B9" BorderBrush="#2980B9" Width="0" Margin="10 5 0 5" FontSize="16" FontFamily="Source Sans Pro" Style="{DynamicResource ButtonStyleHDATA}" ></Button>
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Right" Margin=" 0 0 0 0" Grid.Column="2" Width="177" Orientation="Horizontal"  Background="#2980B9">
-            <fa:ImageAwesome HorizontalAlignment="Right" Icon="Bell" Foreground="White" Height="20" Margin="0 10 10 10" Cursor="Hand" RenderTransformOrigin="0.503,0.095"  ></fa:ImageAwesome>
+            <fa:ImageAwesome  Visibility="Hidden" HorizontalAlignment="Right" Icon="Bell" Foreground="White" Height="20" Margin="0 10 10 10" Cursor="Hand" RenderTransformOrigin="0.503,0.095"  ></fa:ImageAwesome>
             <fa:ImageAwesome HorizontalAlignment="Right" Icon="Cog" Foreground="White" Height="20" Cursor="Hand" MouseDown="ImageAwesome_MouseDown" ></fa:ImageAwesome>
 
-            <Border HorizontalAlignment="Right" BorderThickness="0" Background="#155B80" Width="45" Margin="10 5 10 5" CornerRadius="10">
-                <Label x:Name="lbl_abreviacao_usuario" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="16" Foreground="White" Content="MG"/>
+            <Border x:Name="border_perfil" HorizontalAlignment="Right" BorderThickness="0" Background="#155B80" Width="45" Margin="10 5 10 5" CornerRadius="10" MouseDown="border_perfil_MouseDown">
+                <StackPanel>
+                    <Label x:Name="lbl_abreviacao_usuario" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="16" Foreground="White" Content="MG"/>
+                </StackPanel>
+
             </Border>
+
             <Border  CornerRadius="50" Background="White"  Width="37" Height="37" VerticalAlignment="Center" Cursor="Hand" MouseDown="Border_MouseDown" MouseLeave="Border_MouseLeave">
                 <fa:ImageAwesome x:Name="btn_sair" HorizontalAlignment="Center" VerticalAlignment="Center" Icon="PowerOff" Foreground="#FFFF2626" Height="20" MouseMove="btn_sair_MouseMove" MouseDown="btn_sair_MouseDown" MouseLeave="btn_sair_MouseLeave" />
             </Border>
@@ -105,6 +118,7 @@
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Label HorizontalAlignment="Center" FontFamily="Arial" VerticalAlignment="Center" FontSize="30" Foreground="#155B80">HD</Label>
                 <Label HorizontalAlignment="Center" FontFamily="Arial" VerticalAlignment="Center" Margin="-10 0 0 0" FontSize="25" Foreground="#007ACC">ATA</Label>
+
             </StackPanel>
 
         </Border>

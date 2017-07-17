@@ -16,14 +16,41 @@ namespace CamadaNegocio
         }
         public List<Proveniencia> ListarProveniencia()
         {
-            List<Proveniencia> listaProveniencia = new List<Proveniencia>();
-            DataTable DataTableProveniencia = acessodadosBLL.AcessodadosPostgreSQL.ExecututarConsulta(CommandType.Text, "select \"idProveniencia\" as idproveniencia, nome, descricao from \"Proveniencia\"");
-            foreach (DataRow linha in DataTableProveniencia.Rows)
+            List<Proveniencia> listaProveniencia = null;
+            try
             {
-                Proveniencia p = new Proveniencia(Convert.ToInt32(linha["idproveniencia"]), Convert.ToString(linha["nome"]), Convert.ToString(linha["descricao"]));
-                listaProveniencia.Add(p);
+                listaProveniencia = new List<Proveniencia>();
+                DataTable DataTableProveniencia = acessodadosBLL.AcessodadosPostgreSQL.ExecututarConsulta(CommandType.Text, "select \"idProveniencia\" as idproveniencia, nome, descricao from \"Proveniencia\" order by nome");
+                foreach (DataRow linha in DataTableProveniencia.Rows)
+                {
+                    Proveniencia p = new Proveniencia(Convert.ToInt32(linha["idproveniencia"]), Convert.ToString(linha["nome"]), Convert.ToString(linha["descricao"]));
+                    listaProveniencia.Add(p);
+                }
             }
+            catch (Exception)
+            {
+
+              //  throw;
+            }
+            
             return listaProveniencia;
+        }
+
+        public DataTable ListarProvenienciaDataTable()
+        {
+            try
+            {
+                DataTable DataTableProveniencia = acessodadosBLL.AcessodadosPostgreSQL.ExecututarConsulta(CommandType.Text, "select \"idProveniencia\" as idproveniencia, nome, descricao from \"Proveniencia\" order by nome");
+                return DataTableProveniencia;
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return null;
         }
 
         public int CadastrarProveniencia(Proveniencia p)
@@ -49,6 +76,25 @@ namespace CamadaNegocio
             acessodadosBLL.AcessodadosPostgreSQL.LimparParametros();
             acessodadosBLL.AcessodadosPostgreSQL.AdicionarParametro("id_proveniencia_", p.Id_Proveniencia);
             acessodadosBLL.AcessodadosPostgreSQL.ExecututarManipulacao(CommandType.StoredProcedure, "func_eliminar_proveniencia");
+            return p;
+        }
+
+        public Proveniencia ConsultarProvenienciaPeloID(int IdProvenienica)
+        {
+            Proveniencia p =  null;
+            try
+            {
+                DataTable DataTableProveniencia = acessodadosBLL.AcessodadosPostgreSQL.ExecututarConsulta(CommandType.Text, $"select \"idProveniencia\" as idproveniencia, nome, descricao from \"Proveniencia\" where  \"idProveniencia\" = {IdProvenienica}");
+                if (DataTableProveniencia.Rows.Count > 0)
+                {
+                    DataRow linha = DataTableProveniencia.Rows[0];
+                    p = new Proveniencia(Convert.ToInt32(linha["idproveniencia"]), Convert.ToString(linha["nome"]), Convert.ToString(linha["descricao"]));
+                }
+            }
+            catch (Exception)
+            {
+                throw new Exception("Problema na Consulta de Provenienia pelo Código");
+            }
             return p;
         }
 

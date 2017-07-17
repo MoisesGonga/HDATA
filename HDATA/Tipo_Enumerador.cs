@@ -7,6 +7,6 @@ namespace HDATA
 {
     public enum Tipo_Operacao
     {
-        Cadastro,Actualizacao
+        Cadastro,Actualizar,Eliminar
     }
 }

@@ -4,27 +4,45 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HDATA.Views"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d" 
-             d:DesignHeight="317.143" d:DesignWidth="434.694" Background="White" FontFamily="Source Sans Pro">
+              d:DesignHeight="317.143" d:DesignWidth="434.694" Background="White" FontFamily="Source Sans Pro">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="MainResourceDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
 
     <Grid Name="main_grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="44"/>
+            <RowDefinition Height="48"/>
             <RowDefinition/>
 
         </Grid.RowDefinitions>
-        <Label x:Name="label_title" FontWeight="DemiBold" Content="Lista de Pacientes" Foreground="#1BA1E2" FontSize="30" FontStyle="Normal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" />
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="19" Width="107">
-            <Button Name="btn_cad" Grid.Row="0" Content="+" Width="27" HorizontalAlignment="Left"   Click="btn_cad_Click"  />
-            <Button Name="btn_list" Grid.Row="0" Content="Listar" Width="40" HorizontalAlignment="Left"  Click="btn_list_Click" Height="19" VerticalAlignment="Top"  />
+        <Label x:Name="label_title" FontWeight="DemiBold" Content="Lista de Pacientes" Foreground="#1BA1E2" FontSize="30" FontStyle="Normal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Margin="140,0,54,0"/>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,0" Height="45"  >
+            <Button Name="btn_cad" Grid.Row="0" HorizontalAlignment="Left"   Click="btn_cad_Click" Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand" Foreground="White" Height="40" Width="110" Margin="0,0,20,0">
+                <StackPanel Orientation="Horizontal">
+                    <fa:ImageAwesome x:Name="font_icon_ave" Foreground="White" Width="14" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="UserPlus" />
+                    <Label Content="Cadastrar" FontSize="16"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"></Label>
+                </StackPanel>
+            </Button>
+            <Button Name="btn_list" Grid.Row="0" HorizontalAlignment="Left"  Click="btn_list_Click" VerticalAlignment="Top" Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand" Foreground="White" Height="40" Width="110" >
+                <StackPanel Orientation="Horizontal">
+                    <fa:ImageAwesome x:Name="font_icon_av" Foreground="White"  Width="14" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="List" />
+                    <Label Content="Listar" VerticalContentAlignment="Center" FontSize="16"  Foreground="White" Margin=" 5 0 0 0" VerticalAlignment="Center"></Label>
+                </StackPanel>
+            </Button>
         </StackPanel>
 
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <Grid Grid.Row="1" Name="grid_sub">
-                
+
             </Grid>
         </ScrollViewer>
 

@@ -14,6 +14,7 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -24,6 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,8 +35,19 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ICON - HDATA.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DocX, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.1.0.0.22\lib\net40\DocX.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -51,6 +64,81 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\FontAwesome.WPF.dll</HintPath>
     </Reference>
+    <Reference Include="itext.barcodes, Version=7.0.2.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.2.2\lib\net40\itext.barcodes.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.cleanup, Version=1.0.1.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.pdfsweep.1.0.1\lib\net40\itext.cleanup.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.font_asian, Version=7.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.font-asian.7.0.2\lib\net40\itext.font_asian.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.0.2.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.2.2\lib\net40\itext.forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.html2pdf, Version=1.0.0.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.pdfhtml.1.0.0.2\lib\net40\itext.html2pdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.hyph, Version=7.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.hyph.7.0.2\lib\net40\itext.hyph.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.io, Version=7.0.2.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.2.2\lib\net40\itext.io.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.0.2.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.2.2\lib\net40\itext.kernel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.0.2.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.2.2\lib\net40\itext.layout.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.licensekey, Version=2.0.2.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.pdfinvoice.1.0.1\lib\net40\itext.licensekey.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.0.2.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.2.2\lib\net40\itext.pdfa.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.pdfxfa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.pdfxfa.1.0.0\lib\net40\itext.pdfxfa.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.0.2.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.2.2\lib\net40\itext.sign.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.typography, Version=1.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.pdfcalligraph.1.0.2\lib\net40\itext.typography.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.zugferd, Version=1.0.1.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.pdfinvoice.1.0.1\lib\net40\itext.zugferd.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.11.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.11\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.11.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.11\lib\itextsharp.xmlworker.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\packages\MahApps.Metro.1.1.2.0\lib\net40\MahApps.Metro.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
       <Private>True</Private>
@@ -63,11 +151,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CamadaAcessoDados\bin\Debug\Npgsql.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="SAPBusinessObjects.WPF.Viewer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="SAPBusinessObjects.WPF.ViewerShared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="system.windows.controls.input.toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Layout.Toolkit.Design, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -125,21 +215,72 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\ClosableTab.cs" />
+    <Compile Include="Controls\CloseableHeader.xaml.cs">
+      <DependentUpon>CloseableHeader.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PasswordLogin.xaml.cs">
       <DependentUpon>PasswordLogin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TextBoxLogin.xaml.cs">
       <DependentUpon>TextBoxLogin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CriptorafiaMD5.cs" />
+    <Compile Include="ReportService\ConfigureReportItextSharp.cs" />
+    <Compile Include="ReportService\ServiceReportSessaoHemodialise.cs" />
+    <Compile Include="Reports\CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="NavigationService.cs" />
-    <Compile Include="Prescricao.cs" />
+    <Compile Include="Reports\ListaPacitenteReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListaPacitenteReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ProvenienciaCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProvenienciaCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDataSets\ListarPacienteDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListarPacienteDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportDataSets\ProvenicenciaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProvenicenciaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SessaoHemodialiaseReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SessaoHemodialiaseReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\teste.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>teste.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SQLite.cs" />
+    <Compile Include="SQLiteAsync.cs" />
+    <Compile Include="Views\NewDesignMainWindow.xaml.cs">
+      <DependentUpon>NewDesignMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Prescricao_UserControl.xaml.cs">
+      <DependentUpon>Prescricao_UserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tipo_Enumerador.cs" />
     <Compile Include="trechos_de_codigos.cs" />
-    <Compile Include="Views\Cadastro_Paciente.xaml.cs">
-      <DependentUpon>Cadastro_Paciente.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\DefinicaoContaUtilizador_UserControl.xaml.cs">
-      <DependentUpon>DefinicaoContaUtilizador_UserControl.xaml</DependentUpon>
+    <Compile Include="Views\usc_cadastro_paciente.xaml.cs">
+      <DependentUpon>usc_cadastro_paciente.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Definicoes_UserControl.xaml.cs">
       <DependentUpon>Definicoes_UserControl.xaml</DependentUpon>
@@ -149,6 +290,9 @@
     </Compile>
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Janela_Transicao_Telas.xaml.cs">
+      <DependentUpon>Janela_Transicao_Telas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Listar_Pacientes.xaml.cs">
       <DependentUpon>Listar_Pacientes.xaml</DependentUpon>
@@ -169,6 +313,28 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\ReportItextsharp.xaml.cs">
+      <DependentUpon>ReportItextsharp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SessaoHemodialise.xaml.cs">
+      <DependentUpon>SessaoHemodialise.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\usc_registo_dialise.xaml.cs">
+      <DependentUpon>usc_registo_dialise.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewReportProveniencia.xaml.cs">
+      <DependentUpon>ViewReportProveniencia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewReportSessaoHemodialise.xaml.cs">
+      <DependentUpon>ViewReportSessaoHemodialise.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewUC_CadastroPessoaDadosBasico.xaml.cs">
+      <DependentUpon>ViewUC_CadastroPessoaDadosBasico.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\CloseableHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\PasswordLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -177,15 +343,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DictionarySTYLE_TRY.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\MainResourceDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainResourceDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\NewDesignMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Prescricao_UserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\DictionaryStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Cadastro_Paciente.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\DefinicaoContaUtilizador_UserControl.xaml">
+    <Page Include="Views\usc_cadastro_paciente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -201,6 +383,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Janela_Transicao_Telas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Listar_Pacientes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -213,15 +399,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainResourceDictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\MainTabelas_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReportItextsharp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SessaoHemodialise.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\usc_registo_dialise.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ViewReportProveniencia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ViewReportSessaoHemodialise.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ViewUC_CadastroPessoaDadosBasico.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -240,9 +446,29 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Reports\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ListaPacitenteReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ListaPacitenteReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProvenienciaCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ProvenienciaCrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SessaoHemodialiaseReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SessaoHemodialiaseReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\teste.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>teste.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -250,6 +476,28 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Reports\ReportDataSets\ListarPacienteDataSet.xsc">
+      <DependentUpon>ListarPacienteDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\ReportDataSets\ListarPacienteDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ListarPacienteDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\ReportDataSets\ListarPacienteDataSet.xss">
+      <DependentUpon>ListarPacienteDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\ReportDataSets\ProvenicenciaDataSet.xsc">
+      <DependentUpon>ProvenicenciaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\ReportDataSets\ProvenicenciaDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProvenicenciaDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\ReportDataSets\ProvenicenciaDataSet.xss">
+      <DependentUpon>ProvenicenciaDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -269,30 +517,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\icon.png" />
-    <Resource Include="Resources\img_login.png" />
-    <Resource Include="Resources\wallpaper_09.jpg" />
-    <Resource Include="Resources\wallpaper_11.jpg" />
-    <Resource Include="Resources\wallpaper_12.jpg" />
-    <Resource Include="Resources\wallpaper_16.jpg" />
-    <Resource Include="Resources\wallpaper_17.jpg" />
-    <Resource Include="Resources\wallpaper_18.jpg" />
-    <Resource Include="Resources\wallpaper_20.jpg" />
-    <Resource Include="Resources\wallpaper_21.jpg" />
-    <Resource Include="Resources\wallpaper_22.jpg" />
-    <Resource Include="Resources\wallpaper_23.jpg" />
-    <Resource Include="Resources\wallpaper_24.jpg" />
-    <Resource Include="Resources\wallpaper_26.jpg" />
-    <Resource Include="Resources\wallpaper_28.jpg" />
-    <Resource Include="Resources\wallpaper_29.jpg" />
-    <Resource Include="Resources\wallpaper_31.jpg" />
-    <Resource Include="Resources\wallpaper_32.jpg" />
-    <Resource Include="Resources\wallpaper_33.jpg" />
-    <Resource Include="Resources\wallpaper_34.jpg" />
-    <Resource Include="Resources\wallpaper_35.jpg" />
-    <Resource Include="Resources\wallpaper_36.jpg" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ICON - HDATA.ico" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\ICON - HDATA.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

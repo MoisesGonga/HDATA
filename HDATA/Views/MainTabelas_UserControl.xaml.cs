@@ -28,6 +28,7 @@ namespace HDATA.Views
         EnumTipoOperacao_Manipulacao tipo_Operacao_Proveniencia;
         Proveniencia selectedProveniencia;
         List<Proveniencia> ListaProveniencia;
+
         public MainTabelas_UserControl()
         {
             InitializeComponent();
@@ -65,13 +66,13 @@ namespace HDATA.Views
         {
             if (listview_proveniencia.SelectedItems.Count > 0)
             {
-                btn_edit.IsEnabled = true;
-                btn_eliminar.IsEnabled = true;
+                btn_eliminar.IsEnabled = btn_edit.IsEnabled = true;
+                
             }
             else
             {
-                btn_edit.IsEnabled = false;
-                btn_eliminar.IsEnabled = false;
+                btn_eliminar.IsEnabled = btn_edit.IsEnabled = false;
+                
             }
         }
 
@@ -79,7 +80,6 @@ namespace HDATA.Views
         {
             if (listview_proveniencia.SelectedItems.Count > 0)
             {
-                
                 selectedProveniencia = listview_proveniencia.SelectedItem as Proveniencia;
                 txt_nome_proveniencia.Text = selectedProveniencia.Nome_Proveniencia;
                 txt_descricao_proveniencia.Text = selectedProveniencia.Descricao;
@@ -134,7 +134,9 @@ namespace HDATA.Views
 
         private void btn_limpar_Click(object sender, RoutedEventArgs e)
         {
+            btn_limpar.IsEnabled = false;
             ProvenienciaLimparTextBox();
+            tipo_Operacao_Proveniencia = EnumTipoOperacao_Manipulacao.Cadastrar;
         }
 
         private void ProvenienciaLimparTextBox()
@@ -168,21 +170,24 @@ namespace HDATA.Views
             if (tipo_Operacao_Proveniencia == EnumTipoOperacao_Manipulacao.Cadastrar)
             {
                     p = new Proveniencia(txt_nome_proveniencia.Text.Trim(), txt_descricao_proveniencia.Text.Trim());
-                    MessageBox.Show(provenienciaBLL.CadastrarProveniencia(p).ToString());
-                    NotificacaoLabel(0, selectedProveniencia);
+                    provenienciaBLL.CadastrarProveniencia(p).ToString();
+                    MessageBox.Show("Proveniencia Cadastrada Com sucesso!!!","Cadastrar Sucesso",MessageBoxButton.OK,MessageBoxImage.Information);
+                    //NotificacaoLabel(0, selectedProveniencia);
                     CarregarDadosListaProveniencia();
                     ProvenienciaLimparTextBox();
             }
             else
             {
                     p = new Proveniencia(selectedProveniencia.Id_Proveniencia, txt_nome_proveniencia.Text.Trim(), txt_descricao_proveniencia.Text.Trim());
+                    MessageBox.Show("Proveniencia Actualizada Com sucesso!!!", "Actualizar Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                     provenienciaBLL.ActualizarProveniencia(p);
-                    NotificacaoLabel(1, p);
+                    //NotificacaoLabel(1, p);
                     CarregarDadosListaProveniencia();
                     ProvenienciaLimparTextBox();
                     tipo_Operacao_Proveniencia = EnumTipoOperacao_Manipulacao.Cadastrar;
             }
            }
+            btn_limpar.IsEnabled = true;
         }
 
         private void btn_eliminar_Click(object sender, RoutedEventArgs e)

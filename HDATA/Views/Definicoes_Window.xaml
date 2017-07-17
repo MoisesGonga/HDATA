@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HDATA.Views"
         mc:Ignorable="d"
-        Title="Definições" Height="564.179" Width="1010.459"  WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
+        Title="Definições" Height="695.383" Width="1318.789" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -14,9 +14,9 @@
         <Border BorderThickness="0" MouseDown="Border_MouseDown" Background="#FF007ACC" DragDrop.DragOver="Border_DragOver">
             <Label FontFamily="Roboto" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"  Margin="0">Definições</Label>
         </Border>
-        <Grid Name="grid_principal" Margin="0" Grid.Row="1">
+        <Grid Name="grid_principal" Grid.Row="1">
 
         </Grid>
     </Grid>
-    
+
 </Window>

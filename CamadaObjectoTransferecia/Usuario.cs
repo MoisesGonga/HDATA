@@ -11,5 +11,15 @@ namespace CamadaObjectoTransferecia
         public string NomeUsuario { get; set; }
         public string PalavraPasse { get; set; }
         public Funcionario Funcionario { get; set; }
+        public string Perfil_Usuario { get; set; }
+
+        public Usuario() { }
+
+        public Usuario(string nomeUsuario)
+        {
+            this.NomeUsuario = nomeUsuario;
+        }
     }
+
+    
 }

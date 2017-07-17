@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ProvenicenciaDataSet" targetNamespace="http://tempuri.org/ProvenicenciaDataSet.xsd" xmlns:mstns="http://tempuri.org/ProvenicenciaDataSet.xsd" xmlns="http://tempuri.org/ProvenicenciaDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ProvenicenciaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ProvenicenciaDataSet" msprop:Generator_UserDSName="ProvenicenciaDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Proveniencia" msprop:Generator_TableClassName="ProvenienciaDataTable" msprop:Generator_TableVarName="tableProveniencia" msprop:Generator_TablePropName="Proveniencia" msprop:Generator_RowDeletingName="ProvenienciaRowDeleting" msprop:Generator_RowChangingName="ProvenienciaRowChanging" msprop:Generator_RowEvHandlerName="ProvenienciaRowChangeEventHandler" msprop:Generator_RowDeletedName="ProvenienciaRowDeleted" msprop:Generator_UserTableName="Proveniencia" msprop:Generator_RowChangedName="ProvenienciaRowChanged" msprop:Generator_RowEvArgName="ProvenienciaRowChangeEvent" msprop:Generator_RowClassName="ProvenienciaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nome" msprop:Generator_ColumnVarNameInTable="columnnome" msprop:Generator_ColumnPropNameInRow="nome" msprop:Generator_ColumnPropNameInTable="nomeColumn" msprop:Generator_UserColumnName="nome" type="xs:string" minOccurs="0" />
+              <xs:element name="descricao" msprop:Generator_ColumnVarNameInTable="columndescricao" msprop:Generator_ColumnPropNameInRow="descricao" msprop:Generator_ColumnPropNameInTable="descricaoColumn" msprop:Generator_UserColumnName="descricao" type="xs:string" minOccurs="0" />
+              <xs:element name="idproveniencia" msprop:Generator_ColumnVarNameInTable="columnidproveniencia" msprop:Generator_ColumnPropNameInRow="idproveniencia" msprop:Generator_ColumnPropNameInTable="idprovenienciaColumn" msprop:Generator_UserColumnName="idproveniencia" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

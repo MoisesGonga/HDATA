@@ -7,7 +7,7 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:ctr="clr-namespace:FlatCustomControl;assembly=FlatCustomControl"
         mc:Ignorable="d"
-        Title="LOGIN" MinHeight="501.042" Height="501.042" MinWidth="358.584" Width="358.584" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize">
+        Title="LOGIN" MinHeight="501.042" Height="501.042" MinWidth="358.584" Width="358.584" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" KeyDown="Window_KeyDown" Icon="/HDATA;component/ICON - HDATA.ico">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -44,13 +44,13 @@
             <Controls:PasswordLogin x:Name="txt_senha"  Width="300" Height="36"  Watermark="Palavra-Passe" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0 5" GotFocus="txt_senha_GotFocus"/>
         </StackPanel>
         <StackPanel  Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="30,0,29,0" Width="300">
-            <Button x:Name="button_entrar"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="50" Width="142" Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand" Click="button_entrar_Click">
+            <Button x:Name="button_entrar"  VerticalAlignment="Center" Height="45" Width="130" Margin="18 0 0 0 " Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand" Click="button_entrar_Click" >
                 <StackPanel Orientation="Horizontal">
                     <fa:ImageAwesome x:Name="font_icon" Foreground="White" Width="20" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="SignIn" />
                     <Label Content="Entrar" FontSize="20"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"></Label>
                 </StackPanel>
             </Button>
-            <Button x:Name="button_sair"  HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Center" Height="50" Width="142" Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand" Click="button_sair_Click">
+            <Button x:Name="button_sair"  HorizontalAlignment="Center" Margin="10,18,0,18" VerticalAlignment="Center" Height="45" Width="130" Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand" Click="button_sair_Click">
                 <StackPanel Orientation="Horizontal">
                     <fa:ImageAwesome x:Name="font_icon_sair" Foreground="White" Width="20" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="SignOut" />
                     <Label Content="Sair" FontSize="20"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"></Label>

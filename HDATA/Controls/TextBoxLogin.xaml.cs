@@ -39,6 +39,15 @@ namespace HDATA.Controls
             }
         }
 
+        private bool TextChanged_;
+        public bool TextChanged
+        {
+            get
+            {
+                return this.TextChanged_;
+            }
+        }
+
 
         public string Text
         {
@@ -94,8 +103,8 @@ namespace HDATA.Controls
 
         private void Txt_main_TextChanged(object sender, TextChangedEventArgs e)
         {
-
-
+            this.Border_Thickness = new Thickness(1);
+            this.Border_Color = new SolidColorBrush(Color.FromRgb(212, 212, 212));
         }
 
         private void txt_watermarked_GotFocus(object sender, RoutedEventArgs e)

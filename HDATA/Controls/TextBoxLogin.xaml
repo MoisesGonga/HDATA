@@ -17,8 +17,8 @@
             <Border Background="#F5F5F5" CornerRadius="4 0 0 4" Grid.Column="0" HorizontalAlignment="Center" Width="40" >
                 <fa:ImageAwesome HorizontalAlignment="Center"  VerticalAlignment="Center" Icon="User" Foreground="#3F3F46" Height="24"  />
             </Border>
-            <TextBox Grid.Column="1" x:Name="Txt_main" LostFocus="Txt_main_LostFocus" BorderThickness="0" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Stretch" FontStyle="Normal" FontSize="18" Padding="5 0 5 0" FontFamily="Roboto" TextWrapping="NoWrap" Background="{x:Null}" Foreground="#3F3F46" TextChanged="Txt_main_TextChanged" Height="22" Margin="3"/>
-            <TextBox Grid.Column="1" GotFocus="txt_watermarked_GotFocus" Name="txt_watermarked" BorderThickness="0" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Stretch" FontStyle="Oblique" FontSize="18" Padding="5 0 5 0" FontFamily="Roboto" TextWrapping="NoWrap" Background="{x:Null}" Foreground="#747475" Height="22" Margin="3" />
+            <TextBox Grid.Column="1" x:Name="Txt_main" LostFocus="Txt_main_LostFocus" BorderThickness="0" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Stretch" FontStyle="Normal" FontSize="18" Padding="5 0 5 0" FontFamily="Roboto" TextWrapping="NoWrap" Background="{x:Null}" Foreground="#3F3F46" TextChanged="Txt_main_TextChanged" Height="22" Margin="3" TabIndex="1"/>
+            <TextBox Grid.Column="1" GotFocus="txt_watermarked_GotFocus" Name="txt_watermarked" BorderThickness="0" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Stretch" FontStyle="Oblique" FontSize="18" Padding="5 0 5 0" FontFamily="Roboto" TextWrapping="NoWrap" Background="{x:Null}" Foreground="#747475" Height="22" Margin="3" TabIndex="2" />
         </Grid>
     </Border>
 </UserControl>

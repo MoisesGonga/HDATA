@@ -1,0 +1,270 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HDATA.Views"
+             xmlns:fa="http://schemas.fontawesome.io/icons/" x:Class="HDATA.Views.usc_registo_dialise"
+             mc:Ignorable="d" Height="1348.96" Width="1067.5">
+    <UserControl.Resources>
+        <!--BUTTON FLAT HDATA STYLE-->
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle StrokeDashArray="1 2" StrokeThickness="1" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" Margin="2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FF3498DB"/>
+        <SolidColorBrush x:Key="Button.Static.Border"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FF5BAADE"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FF2C81BA"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#1E1E1E"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#ABABAB"/>
+        <Style x:Key="ButtonStyleFlatHDATA" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" SnapsToDevicePixels="true" CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                            <ContentPresenter x:Name="contentPresenter" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Focusable="False"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="171"/>
+            <ColumnDefinition Width="171"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="171"/>
+            <ColumnDefinition Width="171"/>
+            <ColumnDefinition Width="171"/>
+            <ColumnDefinition Width="171"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="51"/>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="62"/>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="93"/>
+            <RowDefinition Height="46"/>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="164"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="119"/>
+            <RowDefinition Height="39"/>
+            <RowDefinition Height="41"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="133"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="lbl_Title" Content="Registrar Dados da Sessão de Diálise"  Foreground="#1BA1E2" FontSize="25" FontStyle="Normal" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="5" Height="52" Margin="114,6,23,2" Width="562"    />
+        <StackPanel Margin="20,0,9,0" Grid.Row="3" Grid.ColumnSpan="7">
+            <Label Margin="10 0 10 0" x:Name="label_SalMineral" Content="Peso" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="1" />
+            <Separator Margin="10 0 10 0" Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" VerticalAlignment="Center"  Height="1"  />
+        </StackPanel>
+        <Label Content="Peso Entrada(Kg)" Margin="10,0,0,0" FontSize="14" Grid.Row="4" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txt_peso_entrada" Grid.Row="5" Margin="10,0,0,0" FontSize="14" VerticalContentAlignment="Center"/>
+        <Label Content="Peso Seco(Kg)" Margin="10,0,0,0" FontSize="14" Grid.Column="1" Grid.Row="4" VerticalContentAlignment="Center" />
+        <TextBox x:Name="txt_peso_seco" Grid.Row="5" Margin="10,0,0,0" FontSize="14" Grid.Column="1" VerticalContentAlignment="Center"/>
+        <Label Content="Objectiovo UF" Margin="10,0,0,0" FontSize="14" Grid.Column="4" Grid.Row="4" VerticalContentAlignment="Center" />
+        <TextBox x:Name="txt_objetivo_uf" Grid.Row="5" Margin="10,0,0,0" FontSize="14" Grid.Column="4" VerticalContentAlignment="Center"/>
+        <Label Content="Primming" Margin="10,0,0,0" FontSize="14" Grid.Column="5" Grid.Row="4" VerticalContentAlignment="Center" />
+        <TextBox x:Name="txt_primming" Grid.Row="5" Margin="10,0,0,0" FontSize="14" Grid.Column="5" VerticalContentAlignment="Center"/>
+        <Label Content="Peso Saída(Kg)" Margin="13,0,0,0" FontSize="14" Grid.Column="3" Grid.Row="4" VerticalContentAlignment="Center" />
+        <TextBox x:Name="txt_peso_saida" Grid.Row="5" Margin="1,0,0,0" FontSize="14" Grid.Column="3" VerticalContentAlignment="Center"/>
+        <Label Content="Alimentação" Margin="10,0,0,0" FontSize="14" Grid.Column="6" Grid.Row="4" VerticalContentAlignment="Center" />
+        <TextBox x:Name="txt_alimentacao" Grid.Row="5" Margin="10,0" FontSize="14" Grid.Column="6" VerticalContentAlignment="Center"/>
+        <Label Content="Infusão Final" Margin="10,0,0,0" VerticalContentAlignment="Center" FontSize="14" Grid.Row="6"/>
+        <TextBox x:Name="txt_infusao_final" Grid.Row="7" Margin="10,0,0,0" FontSize="14" VerticalContentAlignment="Center"/>
+        <Label Content="Perfusões" Margin="9,0,4,0" FontSize="14" Grid.Row="6" Grid.Column="1" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txt_perfusoes" Grid.Row="7" Margin="9,0,4,0" FontSize="14" Grid.Column="1" VerticalContentAlignment="Center"/>
+        <Label Content="Total UF" Margin="1,0,0,0" FontSize="14" Grid.Row="6" Grid.Column="3" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txt_total_uf" Grid.Row="7" Margin="1,0,0,0" FontSize="14" Grid.Column="3" VerticalContentAlignment="Center"/>
+        <StackPanel Margin="20,13,9,0" Grid.Row="8" Grid.ColumnSpan="2">
+            <Label Margin="10 0 10 0" x:Name="label_SalMineral1" Content="Anticoagulação" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="1" />
+            <Separator Margin="10 0 10 0" Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" VerticalAlignment="Center"  Height="1"  />
+        </StackPanel>
+        <Label Content="Heparina Inicial" Margin="10,0,0,0" FontSize="14" Grid.Row="9" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txt_heparina_inicio_dialise" Grid.Row="10" Margin="10,0,0,0" FontSize="14" VerticalContentAlignment="Center"/>
+        <Label Content="Interrupção Heparina(min)" Margin="6,2,1,8" FontSize="14" Grid.Row="9" Grid.Column="1" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txt_interrup_heparina_dialise" Grid.Row="10" Margin="10,0,0,0" FontSize="14" Grid.Column="1" VerticalContentAlignment="Center"/>
+        <Label Content="Heparina/Hora" Margin="10,0,0,0" FontSize="14" Grid.Row="11"/>
+        <TextBox x:Name="txt_heparina_hora_dialise" Grid.Row="12" Margin="10,0,0,0" FontSize="14"/>
+        <Label Content="Heparina BPM" Margin="10 0 0 0" FontSize="14" Grid.Row="11" Grid.Column="1"/>
+        <TextBox x:Name="txt_heparina_bpm_dialise" Grid.Row="12" Margin="10,0,0,0" FontSize="14" Grid.Column="1"/>
+        <StackPanel Margin="10,7,20,5" Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="4">
+            <Label Margin="10 0 10 0" x:Name="label_SalMineral2" Content="Técnica" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="1" />
+            <Separator Margin="10 0 10 0" Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" VerticalAlignment="Center"  Height="1"  />
+        </StackPanel>
+        <Label Content="Tipo Técnica Início" Margin="20,2,0,4" FontSize="14" Grid.Row="9" Grid.Column="3" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txt_tipo_tecnica_dialise" Grid.Row="10" Margin="10,0,0,0" FontSize="14" Grid.Column="3" VerticalContentAlignment="Center"/>
+        <Label Content="Debito Sangue" Margin="10,0,0,0" FontSize="14" Grid.Row="9" Grid.Column="4" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txt_debito_sangue_tecnica" Grid.Row="10" Margin="10,0,0,0" FontSize="14" Grid.Column="4" VerticalContentAlignment="Center"/>
+        <Label Content="Materiais" Margin="10,0,21,0" FontSize="14" Grid.Row="11" Grid.Column="3" Grid.ColumnSpan="2"/>
+        <ListBox x:Name="listBox_Materiais" HorizontalAlignment="Left" Height="125" Margin="10,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="330" Grid.ColumnSpan="2" Grid.Column="3" Grid.RowSpan="3"/>
+        <Label Content="Terapêutica" Margin="10,0,10,0" FontSize="14" Grid.Row="11" Grid.Column="5" Grid.ColumnSpan="2"/>
+        <ListBox x:Name="listBox_Terapeutica" HorizontalAlignment="Left" Height="122" Margin="11,3,0,0" Grid.Row="12" VerticalAlignment="Top" Width="326" Grid.ColumnSpan="2" Grid.Column="5" Grid.RowSpan="3"/>
+        <StackPanel Margin="20,79,14,3" Grid.Row="13" Grid.ColumnSpan="7" Grid.RowSpan="2">
+            <Label Margin="10 0 10 0" x:Name="label_SalMineral3" Content="Hora Diálise" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="1" />
+            <Separator Margin="10 0 10 0" Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="4" VerticalAlignment="Center"  Height="1"  />
+        </StackPanel>
+        <Label Content="Hora" Margin="10,0,0,0" FontSize="14" Grid.Row="15" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txt_hora_dialise" Grid.Row="16" Margin="10,0,0,0" FontSize="14"/>
+        <Label Content="Tensão Arterial" Margin="10,0,0,0" FontSize="14" Grid.Row="15" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txt_tensao_arterial_dialise" Grid.Row="16" Margin="10,0,0,0" FontSize="14" Grid.Column="1" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <Label Content="Frequência Cardíaca" Margin="10,0,0,0" FontSize="14" Grid.Row="15" Grid.Column="3" VerticalContentAlignment="Center" />
+        <TextBox x:Name="txt_frequencia_cardiaca_dialise" Grid.Row="16" Margin="10,0,0,0" FontSize="14" Grid.Column="3" VerticalContentAlignment="Center"/>
+        <Label Content="Temperatura(ºC)" Margin="10,0,0,0" FontSize="14" Grid.Row="15" Grid.Column="4" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txt_temperatura_dialise" Grid.Row="16" Margin="10,0,0,0" FontSize="14" Grid.Column="4" VerticalContentAlignment="Center"/>
+        <Label Content="Débito Sangue" Margin="10,0,0,0" FontSize="14" Grid.Row="15" Grid.Column="5" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txt_debito_sangue_dialise" Grid.Row="16" Margin="10,0,0,0" FontSize="14" Grid.Column="5" VerticalContentAlignment="Center"/>
+        <Label Content="Pressão Venosa" Margin="10,0" FontSize="14" Grid.Row="15" Grid.Column="6" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txt_pressao_venosa_dialise" Grid.Row="16" Margin="10,0,10,0" FontSize="14" Grid.Column="6" VerticalContentAlignment="Center"/>
+        <Label Content="Pressão Arterial" Margin="10,0,0,0" FontSize="14" Grid.Row="17" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txt_pressao_arterial_dialise" Grid.Row="18" Margin="10,0,0,0" FontSize="14" VerticalContentAlignment="Center"/>
+        <ListView x:Name="listViewHoraRegistoDialise"  Grid.Row="20" VerticalAlignment="Top" Grid.ColumnSpan="7" Height="152" Margin="10,0,10,0" FontWeight="Normal">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="110" Header="Hora" DisplayMemberBinding="{Binding tipoAcesso}"/>
+                    <GridViewColumn Width="120" Header="Tensão Arterial" DisplayMemberBinding="{Binding tipoAcesso}"/>
+                    <GridViewColumn Width="120" Header="Frequência Cardíaca" DisplayMemberBinding="{Binding tipoAcesso}"/>
+                    <GridViewColumn Width="120" Header="Temperatura" DisplayMemberBinding="{Binding tipoAcesso}"/>
+                    <GridViewColumn Width="110" Header="Debito Sangue " DisplayMemberBinding="{Binding tipoAcesso}"/>
+                    <GridViewColumn Width="120" Header="Pressão Venosa" DisplayMemberBinding="{Binding tipoAcesso}"/>
+                    <GridViewColumn Width="120" Header="Pressão Arterial" DisplayMemberBinding="{Binding tipoAcesso}"/>
+                    <GridViewColumn Width="120" Header="Objectivo UF" DisplayMemberBinding="{Binding tipoAcesso}"/>
+
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Objectivo UF" Margin="10,0,0,0" FontSize="14" Grid.Row="17" VerticalContentAlignment="Center" Grid.Column="1" Height="26" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_objectivo_uf_dialise" Grid.Row="18" Margin="10,0,0,0" FontSize="14" VerticalContentAlignment="Center" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+        <StackPanel Margin="0,12,10,17" Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="3" Grid.Column="4" Grid.RowSpan="3" Grid.Row="17" Width="440" >
+            <Button x:Name="btn_novo_registo_dialise"  VerticalAlignment="Top" Height="36" Margin="0 0 10 0" Width="100" FontWeight="Normal" Style="{DynamicResource ButtonStyleFlatHDATA}" Foreground="White" Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <fa:ImageAwesome  Foreground="White" Width="13" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="Plus" />
+                    <Label Content="Novo" FontSize="16"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btn_salvar_registo_dialise" IsEnabled="False"  VerticalAlignment="Top" Height="36" Margin="0 0 10 0" Width="100" FontWeight="Normal" Style="{DynamicResource ButtonStyleFlatHDATA}" Foreground="White" Cursor="Hand" Click="btn_salvar_registo_dialise_Click">
+                <StackPanel Orientation="Horizontal">
+                    <fa:ImageAwesome  Foreground="White" Width="14" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="FloppyOutline" />
+                    <Label Content="Salvar" FontSize="16"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btn_alterar_registo_dialise" IsEnabled="False" VerticalAlignment="Top" Margin="0 0 10 0" Height="36" Width="100" FontWeight="Normal" Style="{DynamicResource ButtonStyleFlatHDATA}" Foreground="White" Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <fa:ImageAwesome  Foreground="White" Width="14" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="Pencil" />
+                    <Label Content="Alterar" FontSize="16"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btn_eliminar_registo_dialise" IsEnabled="False" VerticalAlignment="Top" Height="36" Margin="0 0 10 0" Width="100" FontWeight="Normal" Style="{DynamicResource ButtonStyleFlatHDATA}" Foreground="White" Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <fa:ImageAwesome  Foreground="White" Width="14" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="TrashOutline" />
+                    <Label Content="Eliminar" FontSize="16"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <Label x:Name="lbl_RotuloPaciente"  Content="Amaro Benjamin Buta - 12/12/2016" FontWeight="DemiBold" Grid.Row="1" FontSize="20" Grid.ColumnSpan="7" Margin="114,0,0,0"/>
+        <StackPanel Margin="138,0,10,0" Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="7">
+            <RadioButton Name="rb_presente" Content="Presente" IsChecked="False" VerticalAlignment="Bottom" Margin="10,0,0,6" GroupName="presenca_paciente" Checked="rb_presente_Checked" Unchecked="rb_presente_Unchecked"/>
+            <RadioButton Name="rb_ausente" Content="Ausente" Margin=" 30 0 0 0" VerticalAlignment="Center" GroupName="presenca_paciente" Checked="rb_ausente_Checked" Unchecked="rb_ausente_Unchecked_1" />
+            <Label Content="Sala:" Margin="30 0 0 0" VerticalAlignment="Center"/>
+            <ComboBox x:Name="cmb_Sala" Margin="30,0,0,0" FontWeight="Normal" Width="140" Height="26" />
+            <Label Content="Turno:" Margin="30,0,0,0" VerticalAlignment="Center"/>
+            <ComboBox x:Name="cmb_Turno" Margin="30,0,0,0" FontWeight="Normal" Width="140" />
+            <Label Content="Data:" Margin="30,0,0,0" VerticalAlignment="Center"/>
+            <DatePicker x:Name="date_Data_Registo_Dialise" Margin="20,1,0,1" VerticalAlignment="Center" FontWeight="Normal" Width="140" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="388" Grid.Column="4" Grid.ColumnSpan="3" Margin="0,0,10,30" Grid.RowSpan="2">
+            <Button x:Name="btn_novo"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="110" Margin="0,1,20,0" Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <fa:ImageAwesome  Foreground="White" Width="14" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="CalendarPlusOutline" />
+                    <Label Content="Novo" FontSize="16"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btn_salvar"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="110" Margin="0 0 15 0" Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <fa:ImageAwesome x:Name="font_icon_save" Foreground="White" Width="14" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="FloppyOutline" />
+                    <Label Content="Salvar" FontSize="18"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btn_cancelar"  VerticalAlignment="Center" Height="40" Width="119" Margin="0,10,20,10" Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <fa:ImageAwesome x:Name="font_icon" Foreground="White" Width="14" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="Times" />
+                    <Label Content="Cancelar" FontSize="18"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <TextBox x:Name="txt_notas_enfermagem" HorizontalAlignment="Left" Height="103" Margin="12,7,0,0" Grid.Row="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="508" Grid.ColumnSpan="4"/>
+        <TextBox x:Name="txt_observacoes_medicas" HorizontalAlignment="Left" Height="101" Margin="10,6,0,0" Grid.Row="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="497" Grid.ColumnSpan="3" Grid.Column="4"/>
+        <Label Content="Notas de Enfermagem:" Margin="20,0,0,0" FontSize="14" Grid.Row="21" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <Label Content="Observações Médicas:" Margin="13,0,-3,0" FontSize="14" Grid.Row="21" VerticalContentAlignment="Center" Grid.ColumnSpan="3" Grid.Column="4"/>
+        <StackPanel Grid.ColumnSpan="7" Margin="18,6,0,0" VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="23" Height="33">
+            <Label Content="Enfermeiro que Liga:" FontSize="14" VerticalContentAlignment="Center" Margin="0,0,33,0"/>
+            <TextBox x:Name="txt_enfermeiro_Liga" FontSize="14" VerticalContentAlignment="Center"  Margin="0,0,26,0" Width="324"/>
+            <Label Content="Enfermeiro que Desliga:" FontSize="14" VerticalContentAlignment="Center" Margin="0,0,26,0"/>
+            <TextBox x:Name="txt_enfermeiro_desliga" FontSize="14" VerticalContentAlignment="Center" Margin="0,0,20,0" Width="304"/>
+        </StackPanel>
+        <StackPanel Grid.ColumnSpan="7" Margin="14,7,0,0" VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="24" Height="33">
+            <Label Content="O Médico Responsável:" FontSize="14" VerticalContentAlignment="Center" Margin="0,0,20,0"/>
+            <TextBox x:Name="txt_medico_responsável" FontSize="14" VerticalContentAlignment="Center" Margin="0,0,20,0" Width="326"/>
+            <Label Content="O Coordenador de Turno:" FontSize="14" VerticalContentAlignment="Center" Margin="0,0,20,0"/>
+            <TextBox x:Name="txt_coord_turno" FontSize="14" VerticalContentAlignment="Center" Margin="0,2,20,0" Width="303"/>
+        </StackPanel>
+        <TextBox x:Name="txt_motivos_ausencia" HorizontalAlignment="Left" Height="93" Margin="20,0,0,0" Grid.Row="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="502" Grid.ColumnSpan="4"/>
+        <Label Content="Motivos da Ausência:" Margin="20,0,0,0" FontSize="14" Grid.Row="25" VerticalContentAlignment="Center" Grid.ColumnSpan="7"/>
+
+    </Grid>
+
+</UserControl>

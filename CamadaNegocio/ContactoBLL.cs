@@ -10,10 +10,10 @@ namespace CamadaNegocio
 {
     public class ContactoBLL
     {
-        AcessoDadosBLL acessoDadosBLL;
+        BaseAcessoDadosBLL acessoDadosBLL;
         public ContactoBLL()
         {
-            acessoDadosBLL = new AcessoDadosBLL();
+            acessoDadosBLL = new BaseAcessoDadosBLL();
         }
 
         public string CadastrarContacto(Contacto contacto)

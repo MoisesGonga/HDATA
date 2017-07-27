@@ -223,7 +223,9 @@ namespace HDATA.Views
                     //MessageBox.Show(contBLL.AlterarContacto(new Contacto(3,"945216547"," vidalinho@gmail.com","+244945648421","Victor António")));
                     //endereco = new Endereco(4, "España", "Madrid", "Gaunabaz", "Fidel de Castro Hero!");
                     this.p = paciente;
-                    MessageBox.Show("Paciente "+paciente.Nome+ "Cadastrado com sucesso!!!","Sucesso",MessageBoxButton.OK,MessageBoxImage.Information,MessageBoxResult.OK,MessageBoxOptions.ServiceNotification);
+                    string str_msg = paciente.Genero_.Equals(EnumGenero.Masculino) ? $"O Paciente {paciente.Nome} foi cadastrado com sucesso no sistema!!! " : $"A Paciente {paciente.Nome} foi cadastrado com sucesso no sistema";
+
+                    MessageBox.Show(str_msg, "Sucesso Cadastro",MessageBoxButton.OK,MessageBoxImage.Information,MessageBoxResult.OK,MessageBoxOptions.ServiceNotification);
                 }
                 catch (System.Exception ex)
                 {
@@ -474,7 +476,8 @@ namespace HDATA.Views
             tipo_operacao = EnumTipoOperacao_Manipulacao.Cadastrar;
             lbl_RotuloPaciente.Visibility = Visibility.Hidden;
             mainPaciente_UserControl.label_title.Content = "Prontuário Paciente";
-            LimparCampoDadosPaciente();
+            lbl_RotuloPaciente.Content = "";
+            //LimparCampoDadosPaciente();
         }
 
         public void LimparCampoDadosPaciente()
@@ -515,6 +518,7 @@ namespace HDATA.Views
             if (tipo_operacao == EnumTipoOperacao_Manipulacao.Cadastrar)
             {
                 CadastrarPaciente();
+                tipo_operacao = EnumTipoOperacao_Manipulacao.Actualizar;
             }
             if (tipo_operacao == EnumTipoOperacao_Manipulacao.Actualizar)
             {
@@ -604,7 +608,10 @@ namespace HDATA.Views
                     txt_IdCentroHD.Text = pacienteBLL.ActualizarPaciente(paciente).ToString();
                     this.p = paciente;
                     this.tipo_operacao = EnumTipoOperacao_Manipulacao.Actualizar;
-                    MessageBox.Show("Dados Administrativos do Paciente " + paciente.Nome + " Actualizados com sucesso!!!", "Sucesso Actualização", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.ServiceNotification);
+
+                    string str_msg = paciente.Genero_.Equals(EnumGenero.Masculino) ? $"Dados Administrativos do Paciente {paciente.Nome} Actualizados com sucesso!!!": $"Dados Administrativos da Paciente {paciente.Nome} Actualizados com sucesso!!!";
+
+                    MessageBox.Show(str_msg, "Sucesso Actualização", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.ServiceNotification);
                 }
                 catch (System.Exception ex)
                 {

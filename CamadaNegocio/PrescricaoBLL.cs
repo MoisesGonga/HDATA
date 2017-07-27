@@ -10,11 +10,11 @@ namespace CamadaNegocio
 {
    public class PrescricaoBLL
     {
-        AcessoDadosBLL acessoDadosBLL;
+        BaseAcessoDadosBLL acessoDadosBLL;
 
         public PrescricaoBLL()
         {
-            acessoDadosBLL = new AcessoDadosBLL();
+            acessoDadosBLL = new BaseAcessoDadosBLL();
         }
 
         private string FormatarData(DateTime data)

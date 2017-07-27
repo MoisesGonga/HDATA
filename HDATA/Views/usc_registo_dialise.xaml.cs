@@ -1,4 +1,5 @@
 ﻿using CamadaObjectoTransferecia;
+using HDATA;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,22 +25,53 @@ namespace HDATA.Views
         Paciente paciente;
         Prescricao prescricao;
         RegistoDialise registo_Dialise;
+        private Paciente p;
+        Tipo_Operacao tipo_operacao;
 
         public usc_registo_dialise()
         {
             InitializeComponent();
         }
 
-        public usc_registo_dialise(Paciente p,Prescricao prescricao)
+        public usc_registo_dialise(Paciente p,Tipo_Operacao tipo_op)
         {
             InitializeComponent();
-            this.paciente = p;
-            this.prescricao = prescricao;
+            this.p = p;
+            this.tipo_operacao = tipo_op;
+            CarregarDados();
+
         }
+
+        private void CarregarDados() { 
+        
+            this.lbl_RotuloPaciente.Content = p.ToString();
+            if (this.tipo_operacao.Equals(Tipo_Operacao.Cadastro))
+            {
+                Cadastrar_CarregarDadosPaciente();
+            }
+            else if (this.tipo_operacao.Equals(Tipo_Operacao.Actualizar))
+            {
+                Actualizar_CarregarDadosPaciente();
+            }
+
+
+        }
+
         private void rb_ausente_Unchecked(object sender, RoutedEventArgs e)
         {
             
             this.Background = new SolidColorBrush(new Color());
+        }
+
+        private void Cadastrar_CarregarDadosPaciente()
+        {
+            
+
+        }
+
+        private void Actualizar_CarregarDadosPaciente()
+        {
+
         }
 
         private void rb_ausente_Checked(object sender, RoutedEventArgs e)

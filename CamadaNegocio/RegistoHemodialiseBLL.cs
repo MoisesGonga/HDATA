@@ -10,10 +10,10 @@ namespace CamadaNegocio
 {
     public class RegistoHemodialiseBLL
     {
-        AcessoDadosBLL acessodadosBLL;
+        BaseAcessoDadosBLL acessodadosBLL;
         public RegistoHemodialiseBLL()
         {
-            acessodadosBLL = new AcessoDadosBLL();
+            acessodadosBLL = new BaseAcessoDadosBLL();
         }
 
         public DataTable ConsultarRegistoHemodialise(Paciente paciente)
@@ -27,7 +27,6 @@ namespace CamadaNegocio
             {
                 throw;
             }
-
         }
 
         public DataTable ListarPacientesEscalados(DateTime date)
@@ -80,6 +79,8 @@ namespace CamadaNegocio
             }
 
         }
+
+
         /*
 
         public List<Proveniencia> ListarProveniencia()

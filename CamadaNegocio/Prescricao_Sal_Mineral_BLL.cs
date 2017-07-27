@@ -10,11 +10,11 @@ namespace CamadaNegocio
 {
     public class Prescricao_Sal_Mineral_BLL
     {
-        AcessoDadosBLL acessodadosBLL;
+        BaseAcessoDadosBLL acessodadosBLL;
 
         public Prescricao_Sal_Mineral_BLL()
         {
-            acessodadosBLL = new CamadaNegocio.AcessoDadosBLL();
+            acessodadosBLL = new CamadaNegocio.BaseAcessoDadosBLL();
         }
 
         public void Cadastrar_Prescricao_Sal_Mineral(Prescricao_Sal_Mineral prescricao_Sal_Mineral, Prescricao prescricao)

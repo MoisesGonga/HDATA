@@ -475,6 +475,12 @@
                         <ComboBox x:Name="cmb_tipo_insuficiencia" Grid.Column="1"  Margin="10,0,0,0" Grid.Row="16" FontWeight="Normal" />
                         <Label x:Name="label_Copy31" Content="Data Saída" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="15" Margin="10,1,0,24" Height="29" Width="252" Grid.RowSpan="2" FontWeight="Normal" Grid.Column="3"  />
                         <DatePicker x:Name="date_Data_Saida" SelectedDateChanged="date_Data_Saida_SelectedDateChanged" Margin="10,0,78,0" Grid.Row="16" FontWeight="Normal" Grid.Column="3" Height="27" VerticalAlignment="Top" />
+                        <Button x:Name="btn_salvar"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="100" Margin="257,-1,-26,1" Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand" Click="btn_salvar_Click" Grid.Column="3">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:ImageAwesome x:Name="font_icon_save" Foreground="White" Width="14" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="FloppyOutline" />
+                                <Label Content="Salvar" FontSize="18"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
 
 
 
@@ -692,8 +698,8 @@
                                 <GridViewColumn Header="OBSERVAÇÃO"></GridViewColumn>
                             </GridView>
                         </ListView.View>
-                       
-                        
+
+
                     </ListView>
 
                 </Grid>
@@ -791,21 +797,15 @@
 
         </TabControl>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="240">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="114">
             <!-- <Button x:Name="btn_novo" Content="Novo" HorizontalAlignment="Center"  Foreground="White" FontSize="14" Margin="0 0 10 0" Width="100"  Click="btn_novo_Click" Style="{DynamicResource ButtonStyleFlatHDATA}"/>-->
-            <Button x:Name="btn_novo"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="100" Margin="0 0 20 0" Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand" Click="btn_novo_Click">
+            <Button x:Name="btn_novo"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="100" Margin="0 0 0 0" Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand" Click="btn_novo_Click">
                 <StackPanel Orientation="Horizontal">
-                    <fa:ImageAwesome x:Name="font_icon" Foreground="White" Width="14" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="Plus" />
-                    <Label Content="Novo" FontSize="18"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"></Label>
+                    <fa:ImageAwesome x:Name="font_icon" Foreground="White" Width="14" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="Clone" />
+                    <Label Content="Clonar" FontSize="18"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"></Label>
                 </StackPanel>
             </Button>
             <!--<Button x:Name="button" Content="Salvar" HorizontalAlignment="Center"  Width="100" FontWeight="DemiBold" Click="button_Click" Foreground="White" FontSize="14" Style="{DynamicResource ButtonStyleFlatHDATA}"/>-->
-            <Button x:Name="btn_salvar"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="100" Margin="0 0 10 0" Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand" Click="btn_salvar_Click">
-                <StackPanel Orientation="Horizontal">
-                    <fa:ImageAwesome x:Name="font_icon_save" Foreground="White" Width="14" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="FloppyOutline" />
-                    <Label Content="Salvar" FontSize="18"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"></Label>
-                </StackPanel>
-            </Button>
         </StackPanel>
         <Label x:Name="lbl_RotuloPaciente"  Content="Dados Pacientes" Grid.Row="0" HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="20" Width="828" Height="45"/>
     </Grid>

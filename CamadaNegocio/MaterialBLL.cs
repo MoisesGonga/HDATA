@@ -10,11 +10,11 @@ namespace CamadaNegocio
 {
     public class MaterialBLL
     {
-        AcessoDadosBLL acessodadosBLL;
+        BaseAcessoDadosBLL acessodadosBLL;
 
         public MaterialBLL()
         {
-            acessodadosBLL = new AcessoDadosBLL();
+            acessodadosBLL = new BaseAcessoDadosBLL();
         }
 
         public List<Material> ListarMateriais()

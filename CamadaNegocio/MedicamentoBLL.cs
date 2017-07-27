@@ -11,11 +11,11 @@ namespace CamadaNegocio
    public class MedicamentoBLL
     {
 
-        AcessoDadosBLL acessodadosBLL;
+        BaseAcessoDadosBLL acessodadosBLL;
 
         public MedicamentoBLL()
         {
-            acessodadosBLL = new CamadaNegocio.AcessoDadosBLL();
+            acessodadosBLL = new CamadaNegocio.BaseAcessoDadosBLL();
         }
 
         public List<Medicamento> ListarMedicamentos()

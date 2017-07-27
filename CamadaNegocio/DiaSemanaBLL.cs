@@ -10,11 +10,11 @@ namespace CamadaNegocio
 {
    public class DiaSemanaBLL
     {
-        AcessoDadosBLL acessodadosBLL;
+        BaseAcessoDadosBLL acessodadosBLL;
 
         public DiaSemanaBLL()
         {
-            acessodadosBLL = new CamadaNegocio.AcessoDadosBLL();
+            acessodadosBLL = new CamadaNegocio.BaseAcessoDadosBLL();
         }
         public List<DiaSemana> ConsultarDiasSemanaDaEscala(Escala escala)
         {

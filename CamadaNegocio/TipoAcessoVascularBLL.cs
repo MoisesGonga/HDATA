@@ -10,10 +10,10 @@ namespace CamadaNegocio
 {
     public class TipoAcessoVascularBLL
     {
-        AcessoDadosBLL acessodadosBLL;
+        BaseAcessoDadosBLL acessodadosBLL;
         public TipoAcessoVascularBLL()
         {
-            acessodadosBLL = new AcessoDadosBLL();
+            acessodadosBLL = new BaseAcessoDadosBLL();
         }
 
         public List<TipoAcessoVascular> ListaTipoAcessoVascular()

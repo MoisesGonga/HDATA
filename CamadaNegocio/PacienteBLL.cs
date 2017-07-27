@@ -10,12 +10,12 @@ namespace CamadaNegocio
 {
     public class PacienteBLL
     {
-        AcessoDadosBLL acessoDadosBLL = new AcessoDadosBLL();
+        BaseAcessoDadosBLL acessoDadosBLL = new BaseAcessoDadosBLL();
         #region Manipulação Dados dos Pacientes
 
         public PacienteBLL()
         {
-            acessoDadosBLL = new AcessoDadosBLL();
+            acessoDadosBLL = new BaseAcessoDadosBLL();
         }
         
         public int CadastrarPaciente(Paciente p)

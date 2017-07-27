@@ -34,19 +34,25 @@ namespace HDATA.Views
         {
             this.user = us;
             InitializeComponent();
-            if (user.Perfil_Usuario=="Administrador")
-            {
-                NavigationService.GridNavigationUsercontrol(grid_principal, new Definicoes_UserControl(user));
-            }
-            else
-            {
-                //Height = "360.448" Width = "536.194"
-                //this.Height = 500;
-                //this.Width =564;
-                NavigationService.GridNavigationUsercontrol(grid_principal, new Definicoes_UserControl(user));
-            }
+            NavigationService.GridNavigationUsercontrol(grid_principal, new Definicoes_UserControl(user));
+
+            //if (user.Perfil_Usuario==UserType.Admin)
+            //{
+                
+            //}
+            //else
+            //{
+            //    //Height = "360.448" Width = "536.194"
+            //    //this.Height = 500;
+            //    //this.Width =564;
+            //    NavigationService.GridNavigationUsercontrol(grid_principal, new Definicoes_UserControl(user));
+            //}
         }
 
+        public void CarregarDadosPerfil(Usuario userx)
+        {
+          
+        }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();

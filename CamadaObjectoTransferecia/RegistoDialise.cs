@@ -30,6 +30,7 @@ namespace CamadaObjectoTransferecia
         public string volume_Tratado { get; set; }
         public string observacao_Medica { get; set; }
         public string justificacao_ausencia { get; set; }
+        public string estado { get; set; }
         public Sala sala { get; set; }
         public Turno turno { get; set; }
         public Paciente idpessoa { get; set; } 

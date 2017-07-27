@@ -1,0 +1,56 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HDATA.Views"
+        xmlns:fa="http://schemas.fontawesome.io/icons/" x:Class="HDATA.Views.ViewAlterarPalavraPasse"
+        mc:Ignorable="d"
+        Title="Alteração da Palavra-Passe" Height="552" Width="414" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"  >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="165*"/>
+
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="111*"/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel  Grid.Row="9" Orientation="Horizontal" HorizontalAlignment="Center" Width="314" >
+            <Button x:Name="button_entrar"  VerticalAlignment="Center" Height="45" Width="150" Margin="0 0 7 0" Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand" >
+                <StackPanel Orientation="Horizontal">
+                    <fa:ImageAwesome x:Name="font_icon" Foreground="White" Width="15" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="Pencil" />
+                    <Label Content="Alterar" FontSize="20"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btn_cancelar"  HorizontalAlignment="Center" Margin="7 0 0 0" VerticalAlignment="Center" Height="44" Width="150" Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand" Click="btn_cancelar_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <fa:ImageAwesome x:Name="font_icon_sair" Foreground="White" Width="20" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="ShareSquareOutline" />
+                    <Label Content="Cancelar" FontSize="20"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <Border BorderThickness="0" Background="#FF007ACC" DragOver="Border_DragOver" MouseDown="Border_MouseDown">
+            <StackPanel>
+                <fa:ImageAwesome  VerticalAlignment="Center" Icon="KeyboardOutline" HorizontalAlignment="Center" Foreground="White" Width="120"  Margin="0 10"/>
+                <Label FontFamily="Roboto" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24"  Margin="0 10" Content="Alteração da Palavra-Passe"/>
+            </StackPanel>
+        </Border>
+        <Label Content="Digite a palavra-passe actual"   Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="SemiBold"  />
+        <PasswordBox x:Name="passwordBoxActual" MaxLength="50" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="314" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"  />
+        <Label Content="Digite a nova palavra-passe"   Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="SemiBold"  />
+        <PasswordBox x:Name="passwordBox_NovaPalavraPasse" MaxLength="50" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="314" Height="30" Margin="46,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" />
+        <Label Content="Digite a nova palavra-passe novamente"   Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="SemiBold" Height="30"  />
+        <PasswordBox x:Name="passwordBox_NovaPalavraPasse_repetir" MaxLength="50" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Width="314" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"  />
+        <Label x:Name="lbl_notificacao" Content="Palavra-passe actual incorrecta"   Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontWeight="SemiBold" Height="30" Foreground="#FFFF2A2A" />
+
+    </Grid>
+</Window>

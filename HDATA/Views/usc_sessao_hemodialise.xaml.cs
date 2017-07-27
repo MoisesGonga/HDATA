@@ -7,14 +7,14 @@ using System.Windows.Controls;
 namespace HDATA.Views
 {
     /// <summary>
-    /// Interaction logic for SessaoHemodialise.xaml
+    /// Interaction logic for usc_sessao_hemodialise.xaml
     /// </summary>
-    public partial class SessaoHemodialise : UserControl
+    public partial class usc_sessao_hemodialise : UserControl
     {
         PacienteBLL pacienteBLL;
         usc_registo_dialise userControRegistoDialise;
 
-        public SessaoHemodialise()
+        public usc_sessao_hemodialise()
         {
             InitializeComponent();
 
@@ -56,21 +56,18 @@ namespace HDATA.Views
 
         private void btn_registrar_sessão_Hemodialise_Click(object sender, RoutedEventArgs e)
         {
-            Janela_Transicao_Telas janelaRegistoDialise = new Views.Janela_Transicao_Telas();
             if (dataGrid_PacietesEscalados.SelectedItems.Count > 0)
             {
-            var item = dataGrid_PacietesEscalados.SelectedItem;
-            Paciente p = pacienteBLL.ObterPacientePeloCodigo(Convert.ToInt32((dataGrid_PacietesEscalados.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text));
-                 janelaRegistoDialise = new Views.Janela_Transicao_Telas();
+                var item = dataGrid_PacietesEscalados.SelectedItem;
+
+                Paciente p = pacienteBLL.ObterPacientePeloCodigo(Convert.ToInt32((dataGrid_PacietesEscalados.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text));
+                Janela_Transicao_Telas janelaRegistoDialise = new Views.Janela_Transicao_Telas();
+                janelaRegistoDialise = new Views.Janela_Transicao_Telas();
+                userControRegistoDialise = new Views.usc_registo_dialise(p,Tipo_Operacao.Cadastro);
+                janelaRegistoDialise.Title = "REGISTO DE SESSÃO DE HEMODIÁLISE";
                 NavigationService.GridNavigationUsercontrol(janelaRegistoDialise.grid_main, userControRegistoDialise);
                 janelaRegistoDialise.ShowDialog();
             }
-            janelaRegistoDialise = new Views.Janela_Transicao_Telas();
-            userControRegistoDialise = new Views.usc_registo_dialise();
-            janelaRegistoDialise.Title = "REGISTO DE SESSÃO DE HEMODIÁLISE";
-            NavigationService.GridNavigationUsercontrol(janelaRegistoDialise.grid_main, userControRegistoDialise);
-            janelaRegistoDialise.ShowDialog();
-
         }
 
         private void datepicker_escala_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -85,6 +82,28 @@ namespace HDATA.Views
         private void btn_buscar_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void dataGrid_PacietesEscalados_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+          
+          
+        }
+
+        private void dataGrid_PacietesEscalados_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (dataGrid_PacietesEscalados.SelectedItems.Count > 0)
+            {
+                var item = dataGrid_PacietesEscalados.SelectedItem;
+
+                Paciente p = pacienteBLL.ObterPacientePeloCodigo(Convert.ToInt32((dataGrid_PacietesEscalados.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text));
+                Janela_Transicao_Telas janelaRegistoDialise = new Views.Janela_Transicao_Telas();
+                janelaRegistoDialise = new Views.Janela_Transicao_Telas();
+                userControRegistoDialise = new Views.usc_registo_dialise(p,Tipo_Operacao.Cadastro);
+                janelaRegistoDialise.Title = "REGISTO DE SESSÃO DE HEMODIÁLISE";
+                NavigationService.GridNavigationUsercontrol(janelaRegistoDialise.grid_main, userControRegistoDialise);
+                janelaRegistoDialise.ShowDialog();
+            }
         }
     }
 }

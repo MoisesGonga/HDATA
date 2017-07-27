@@ -10,11 +10,11 @@ namespace CamadaNegocio
 {
     public class Sal_MineralBLL
     {
-        AcessoDadosBLL acessodadosBLL;
+        BaseAcessoDadosBLL acessodadosBLL;
 
         public Sal_MineralBLL()
         {
-            acessodadosBLL = new CamadaNegocio.AcessoDadosBLL();
+            acessodadosBLL = new CamadaNegocio.BaseAcessoDadosBLL();
         }
 
         public List<Sal_Mineral> ListarSal_Mineral()

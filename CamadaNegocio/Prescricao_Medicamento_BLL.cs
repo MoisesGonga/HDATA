@@ -10,11 +10,11 @@ namespace CamadaNegocio
 {
     public class Prescricao_Medicamento_BLL
     {
-        AcessoDadosBLL acessodadosBLL;
+        BaseAcessoDadosBLL acessodadosBLL;
 
         public Prescricao_Medicamento_BLL()
         {
-            acessodadosBLL = new CamadaNegocio.AcessoDadosBLL();
+            acessodadosBLL = new CamadaNegocio.BaseAcessoDadosBLL();
         }
 
         public bool Cadastrar_Prescricao_Medicamento(Prescricao_Medicamento prescricao_Medicamento, Prescricao prescricao)

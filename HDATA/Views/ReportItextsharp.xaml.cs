@@ -21,6 +21,10 @@ using System.Diagnostics;
 using System.IO;
 using HDATA.ReportService;
 using iTextSharp.text;
+using System.ComponentModel;
+using CamadaNegocio;
+using System.Data;
+using CamadaObjectoTransferecia;
 
 namespace HDATA.Views
 {
@@ -29,9 +33,14 @@ namespace HDATA.Views
     /// </summary>
     public partial class ReportItextsharp : Window
     {
+        PacienteBLL pacienteBLL;
+        DataTable datatablePaciente;
         public ReportItextsharp()
         {
+            pacienteBLL = new PacienteBLL();
+            datatablePaciente = new DataTable();
             InitializeComponent();
+            UseBackgroundWorker();
         }
 
         private void CriarDocCabecalhoRodape()
@@ -238,6 +247,82 @@ namespace HDATA.Views
         private void Window_GotFocus_1(object sender, RoutedEventArgs e)
         {
             popInformation.IsOpen = false;
+        }
+
+        private void UseBackgroundWorker()
+        {
+            painel_carregando.Visibility = Visibility.Visible;
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(worker_RunWorkerCompleted);
+            worker.DoWork += new DoWorkEventHandler(worker_DoWorkEventHandler);
+            worker.RunWorkerAsync();
+
+        }
+
+        public void CarregarTodosPacientes()
+        {
+            try
+            {
+                dataGrid1.Items.Clear();
+                DataView dataview = pacienteBLL.BuscarTodosPaciente().AsDataView();
+                dataGrid1.ItemsSource = dataview;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao Listar os dados dos Pacientes!!!", "Listar Pacientes", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void worker_DoWorkEventHandler(object sender, DoWorkEventArgs e)
+        {
+            datatablePaciente = pacienteBLL.BuscarTodosPaciente();
+            ConsultarpeloNome();
+        }
+
+        private async void ConsultarpeloNome()
+        {
+            //datatablePaciente = pacienteBLL.ConsultarPacientePorNome(buscarPaciente.Text);
+            await Task.Delay(1000);
+        }
+
+        private void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            dataGrid1.ItemsSource = datatablePaciente.AsDataView();
+            painel_carregando.Visibility = Visibility.Collapsed;
+        }
+
+        private void worker1_DoWorkEventHandler(object sender, DoWorkEventArgs e)
+        {
+            //List<Paciente> ListaPaciente = new List<Paciente>();
+            //List<Paciente> pacientesPesquisados = ListaPaciente.Where(p => p.Nome.Contains(buscarPaciente.Text));
+           datatablePaciente = pacienteBLL.ConsultarPacientePorNome(buscarPaciente.Text);
+        }
+
+        private void worker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+            dataGrid1.ItemsSource = datatablePaciente.AsDataView();
+            painel_carregando.Visibility = Visibility.Collapsed;
+        }
+
+        private void btn_carregar_pacient_Click(object sender, RoutedEventArgs e)
+        {
+            //CarregarTodosPacientes();
+            //var filteredTable = (from n in datatablePaciente.AsEnumerable() where n.Field<>("nome") = "Amaro Buta").Select.
+
+            UseBackgroundWorker();
+        }
+
+        private void buscarPaciente_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            painel_carregando.Visibility = Visibility.Visible;
+            BackgroundWorker worker1 = new BackgroundWorker();
+            worker1.RunWorkerCompleted += new RunWorkerCompletedEventHandler(worker1_RunWorkerCompleted);
+            worker1.DoWork += new DoWorkEventHandler(worker1_DoWorkEventHandler);
+            worker1.RunWorkerAsync();
+
         }
     }
 }

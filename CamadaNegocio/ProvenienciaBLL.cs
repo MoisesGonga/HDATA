@@ -7,12 +7,12 @@ namespace CamadaNegocio
 {
     public class ProvenienciaBLL
     {
-        AcessoDadosBLL acessodadosBLL;
+        BaseAcessoDadosBLL acessodadosBLL;
         
         #region Manipulação da Tabela Proveniencia
         public ProvenienciaBLL()
         {
-            acessodadosBLL = new CamadaNegocio.AcessoDadosBLL();
+            acessodadosBLL = new CamadaNegocio.BaseAcessoDadosBLL();
         }
         public List<Proveniencia> ListarProveniencia()
         {

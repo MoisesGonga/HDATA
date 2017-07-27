@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HDATA.Views"
-         xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:pageTransitions="clr-namespace:WpfPageTransitions;assembly=WpfPageTransitions"
+        xmlns:userAcess="clr-namespace:HDATA.UserAccess"
         mc:Ignorable="d"
         
         
@@ -89,8 +90,8 @@
 
             <Button Content="Paciente" BorderThickness="0" Foreground="White" Background="#2980B9" BorderBrush="#2980B9" Width="90" Margin="20 2 0 2" FontFamily="Source Sans Pro" FontSize="16" Click="Button_Click_1" Style="{DynamicResource ButtonStyleHDATA}" Cursor="Hand"></Button>
             <Button Name="sessao_hemodialise" Content="Sessão  HD" BorderThickness="0" Foreground="White" Background="#2980B9" BorderBrush="#2980B9" Width="90" Margin="20 2 0 2" FontSize="16" FontFamily="Source Sans Pro" Style="{DynamicResource ButtonStyleHDATA}" Cursor="Hand" Click="sessao_hemodialise_Click"></Button>
-            <Button x:Name="btn_Tabelas" Content="Tabelas" BorderThickness="0" Foreground="White" BorderBrush="#2980B9" Width="90" Margin="20 2 0 2" FontFamily="Source Sans Pro" Click="btn_Tabelas_Click" Style="{DynamicResource ButtonStyleHDATA}" FontSize="16" Cursor="Hand"></Button>
-            <Button Name="relatorios" Content="Relatório" BorderThickness="0" Foreground="White" Background="#2980B9" BorderBrush="#2980B9" Width="90" Margin="20 2 0 2" FontSize="16" FontFamily="Source Sans Pro" Style="{DynamicResource ButtonStyleHDATA}" Cursor="Hand" Click="relatorios_Click"></Button>
+            <Button userAcess:UserAccessAttachedProperty.UserAccessType="Medical,Admin" x:Name="btn_Tabelas" Content="Tabelas" BorderThickness="0" Foreground="White" BorderBrush="#2980B9" Width="90" Margin="20 2 0 2" FontFamily="Source Sans Pro" Click="btn_Tabelas_Click" Style="{DynamicResource ButtonStyleHDATA}" FontSize="16" Cursor="Hand"></Button>
+            <Button userAcess:UserAccessAttachedProperty.UserAccessType="Medical,Admin,Nurse" Name="relatorios" Content="Relatório" BorderThickness="0" Foreground="White" Background="#2980B9" BorderBrush="#2980B9" Width="90" Margin="20,2,0,0" FontSize="16" FontFamily="Source Sans Pro" Style="{DynamicResource ButtonStyleHDATA}" Cursor="Hand" Click="relatorios_Click" Height="40" VerticalAlignment="Top"></Button>
             <Button Name="btn_ajuda" Click="btn_ajuda_Click" Content="Ajuda" BorderThickness="0" Foreground="White" Background="#2980B9" BorderBrush="#2980B9" Width="0" Margin="10 5 0 5" FontSize="16" FontFamily="Source Sans Pro" Style="{DynamicResource ButtonStyleHDATA}" ></Button>
         </StackPanel>
 
@@ -98,9 +99,9 @@
             <fa:ImageAwesome  Visibility="Hidden" HorizontalAlignment="Right" Icon="Bell" Foreground="White" Height="20" Margin="0 10 10 10" Cursor="Hand" RenderTransformOrigin="0.503,0.095"  ></fa:ImageAwesome>
             <fa:ImageAwesome HorizontalAlignment="Right" Icon="Cog" Foreground="White" Height="20" Cursor="Hand" MouseDown="ImageAwesome_MouseDown" ></fa:ImageAwesome>
 
-            <Border x:Name="border_perfil" HorizontalAlignment="Right" BorderThickness="0" Background="#155B80" Width="45" Margin="10 5 10 5" CornerRadius="10" MouseDown="border_perfil_MouseDown">
+            <Border x:Name="border_perfil" HorizontalAlignment="Right" BorderThickness="0" Background="#155B80" Width="60" Margin="10 5 10 5" CornerRadius="10" MouseDown="border_perfil_MouseDown">
                 <StackPanel>
-                    <Label x:Name="lbl_abreviacao_usuario" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="16" Foreground="White" Content="MG"/>
+                    <Label Margin="0 2" x:Name="lbl_abreviacao_usuario" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="16" Foreground="White" Content="MDG"/>
                 </StackPanel>
 
             </Border>

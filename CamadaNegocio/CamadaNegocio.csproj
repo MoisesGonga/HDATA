@@ -44,8 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcessoDadosBLL.cs" />
+    <Compile Include="BaseAcessoDadosBLL.cs" />
     <Compile Include="AcessoVascularBLL.cs" />
+    <Compile Include="BaseHelpBLL.cs" />
     <Compile Include="Centro_Hemodialise.cs" />
     <Compile Include="ContactoBLL.cs" />
     <Compile Include="CriptorafiaMD5.cs" />

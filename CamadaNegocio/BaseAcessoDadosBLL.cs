@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CamadaAcessoDados;
 namespace CamadaNegocio
 {
-   public class AcessoDadosBLL
+   public class BaseAcessoDadosBLL
     {
         
         private AcessoDadosPostgreSQL acessoDadosPostgreSQL_;

@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HDATA.Views"
         mc:Ignorable="d"
-        Title="" Width="1198.88" Height="715.332" WindowStartupLocation="CenterScreen" Background="#FFF1F1F1">
-    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Background="#7FF5F5F5" >
+        Title="" Width="1198.88" Height="715.332" WindowStartupLocation="CenterScreen" Background="White">
+    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Background="White" >
         <Grid Name="grid_main" HorizontalAlignment="Center">
 
         </Grid>

@@ -7,7 +7,7 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:ctr="clr-namespace:FlatCustomControl;assembly=FlatCustomControl"
         mc:Ignorable="d"
-        Title="LOGIN" MinHeight="501.042" Height="501.042" MinWidth="358.584" Width="358.584" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" KeyDown="Window_KeyDown" Icon="/HDATA;component/ICON - HDATA.ico">
+        Title="LOGIN" MinHeight="501.042" Height="405" MinWidth="358.584" Width="299.792" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" KeyDown="Window_KeyDown" Icon="/HDATA;component/ICON - HDATA.ico">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

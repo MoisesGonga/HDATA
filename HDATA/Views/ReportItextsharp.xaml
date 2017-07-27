@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HDATA.Views"
         mc:Ignorable="d"
-        Title="ReportItextsharp" Height="357" Width="669" GotFocus="Window_GotFocus_1">
-    
+        Title="ReportItextsharp" Height="432" Width="939" GotFocus="Window_GotFocus_1">
+
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -15,12 +15,14 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="44"/>
-            <RowDefinition Height="155*"/>
-            <RowDefinition Height="126*"/>
+            <RowDefinition Height="91*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="206*"/>
         </Grid.RowDefinitions>
 
-        <Button  x:Name="btn_create" Margin="-51,105,0,-1" Click="btn_create_Click" Grid.Column="1" HorizontalAlignment="Left" Width="156" Grid.Row="1" Content="create"/>
-        <TextBox x:Name="txtNomePaciente" HorizontalAlignment="Left" Margin="-30,55,0,77" TextWrapping="Wrap" Text="TextBox" Width="305" Grid.Column="1" Grid.Row="1"/>
+        <Button  x:Name="btn_create" Margin="10,86,0,12" Click="btn_create_Click" HorizontalAlignment="Left" Width="156" Grid.Row="1" Content="create" Grid.RowSpan="2"/>
+        <TextBox x:Name="txtNomePaciente" HorizontalAlignment="Left" Margin="166,55,0,10" TextWrapping="Wrap" Text="TextBox" Width="305" Grid.Row="1" Grid.ColumnSpan="2"/>
 
         <Popup x:Name="popInformation"  
 
@@ -42,7 +44,7 @@
 
        VerticalAlignment="Top"
 
-       HorizontalOffset="-100" VerticalOffset="-10" Margin="-180,0,0,0" Grid.RowSpan="2" >
+       HorizontalOffset="-100" VerticalOffset="-10" Margin="-54,0,0,0" Grid.RowSpan="4" >
             <Grid Margin="10">
                 <Path Fill="LightYellow" Stretch="Fill" 
 
@@ -150,7 +152,39 @@
         </Popup>
 
 
-        <Button x:Name="button1" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="165,75,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Height="35" Click="button1_Click"/>
+        <Button x:Name="button1" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="299,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Height="35" Click="button1_Click"/>
+        <DataGrid x:Name="dataGrid1" Background="#F0F0F0" CanUserAddRows="False" IsReadOnly="True" CanUserDeleteRows="False" RowStyle="{StaticResource DataGridRowStyle}" ColumnHeaderStyle="{StaticResource HeaderStyle}" GridLinesVisibility="None" SelectionMode="Single" RowHeight="20"  AutoGenerateColumns="False" HorizontalAlignment="Stretch" Grid.Row="3" VerticalAlignment="Stretch" FontSize="14" VerticalContentAlignment="Center" Cursor="Hand"  CanUserResizeRows="False" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="ID CENTRO" Binding="{Binding idpessoa}" Width="AUTO"/>
+                <DataGridTextColumn Header="NRº PRONTUÁRIO HOSPITAL" Binding="{Binding identificacao_hp}"/>
+                <DataGridTextColumn Header="NOME PACIENTE" Binding="{Binding nome}"/>
+                <DataGridTextColumn Header="TIPO INSUFICIÊNCIA" Binding="{Binding tipo_insuficiencia}"/>
+                <DataGridTextColumn Header="DATA NASCIMENTO" Binding="{Binding datanasc, StringFormat=\{0:dd-MM-yy\},Mode=OneWay}"/>
+                <DataGridTextColumn Header="DATA ENTRADA" Binding="{Binding data_entrada, StringFormat=\{0:dd-MM-yy\},Mode=OneWay}"/>
+                <DataGridTextColumn Header="DATA INICIO TRATAMENTO" Binding="{Binding data_inicio_hd, StringFormat=\{0:dd-MM-yy\},Mode=OneWay}"/>
+                <DataGridTextColumn Header="GENERO" Binding="{Binding genero}"/>
+                <DataGridTextColumn Header="RAÇA" Binding="{Binding raca}"/>
+                <DataGridTextColumn Header="TELEFONE" Binding="{Binding telefone_1}"/>
+                <DataGridTextColumn Header="TELEFONE PARENTE" Binding="{Binding telefone_parente}"/>
+                <DataGridTextColumn Header="NOME PARENTE" Binding="{Binding nome_parente}"/>
+                <DataGridTextColumn Header="Nº BILHETE IDENTIDADE" Binding="{Binding num_bi}"/>
+                <DataGridTextColumn Header="NOME ENTIDADE RESPONSÁVEL" Binding="{Binding nome_entidade_responsavel}"/>
+                <DataGridTextColumn Header="NRº TERMO RESPONSABILIDADE" Binding="{Binding nr_term_responsabilidade}"/>
+                <DataGridTextColumn Header="NOME PAI" Binding="{Binding nome_pai}"/>
+                <DataGridTextColumn Header="NOME MÃE" Binding="{Binding nome_mae}"/>
+                <DataGridTextColumn Header="NACIONALIDADE" Binding="{Binding nacionalidade}"/>
+
+
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button  x:Name="btn_carregar_pacient" Margin="33,86,0,12" HorizontalAlignment="Left" Width="156" Grid.Row="1" Content="Carregar Pacientes" Grid.Column="1" Click="btn_carregar_pacient_Click" Grid.RowSpan="2"/>
+        <TextBox x:Name="painel_carregando" HorizontalAlignment="Stretch"  Grid.Row="4" TextWrapping="Wrap" Text="Carregando..." VerticalAlignment="Stretch" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" TextDecorations="{x:Null}" FontFamily="Lato"/>
+        <TextBox x:Name="buscarPaciente" HorizontalAlignment="Left" Margin="340,0,0,6" TextWrapping="Wrap" Text="" Width="305" Grid.Row="2" Grid.Column="1" TextChanged="buscarPaciente_TextChanged"/>
+
+
 
     </Grid>
 </Window>

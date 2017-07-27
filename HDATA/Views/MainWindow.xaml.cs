@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -16,6 +15,8 @@ using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfPageTransitions;
+using HDATA.UserAccess;
+using CamadaNegocio;
 
 namespace HDATA.Views
 {
@@ -28,14 +29,16 @@ namespace HDATA.Views
         MainTabelas_UserControl tabelas;
         Home home;
         Usuario user;
-        SessaoHemodialise sessaoHemodialise;
+        usc_sessao_hemodialise sessaoHemodialise;
 
         public MainWindow()
         {
 
             user = new Usuario();
-            user.Perfil_Usuario = "Administrador";
+         
+            user.Perfil_Usuario = UserType.Admin;
             user.NomeUsuario = "Moisés Gonga";
+            AppCommon.LogedUserType = user.Perfil_Usuario;
             user.Funcionario = new Funcionario();
             user.Funcionario.Nome = "Root ";
         InitializeComponent();
@@ -44,22 +47,25 @@ namespace HDATA.Views
         tabelas = new MainTabelas_UserControl();
         pagetransitioncontrol.TransitionType = PageTransitionType.Fade;
             pagetransitioncontrol.ShowPage(home);
-            sessaoHemodialise = new Views.SessaoHemodialise();
+            sessaoHemodialise = new Views.usc_sessao_hemodialise();
            // funcionario = new Funcionario();
            //funcionario.Categoria = "Administrador";
            //BeginStoryboard()
         }
     public MainWindow( Usuario user)
         {
+            AppCommon.LogedUserType = user.Perfil_Usuario;
             InitializeComponent();
+            
             listapacientes = new MainPaciente_UserControl();
             home = new Home();
             tabelas = new MainTabelas_UserControl();
             pagetransitioncontrol.TransitionType = PageTransitionType.Fade;
             pagetransitioncontrol.ShowPage(home);
             this.user = user;
-            sessaoHemodialise = new Views.SessaoHemodialise();
-            lbl_abreviacao_usuario.Content = Abreviacao(user.NomeUsuario).ToUpper();
+            sessaoHemodialise = new Views.usc_sessao_hemodialise();
+            lbl_abreviacao_usuario.Content = user.SiglaUsuario;
+                //Abreviacao(user.NomeUsuario).ToUpper();
         }
 
         private string Abreviacao(string username)
@@ -150,17 +156,40 @@ namespace HDATA.Views
         private void btn_sair_MouseDown(object sender, MouseButtonEventArgs e)
         {
             // BLUR EFFECT
-           var blur = new BlurEffect();
-           blur.Radius = 8;
-           var current = this.Background;
-           this.Background = new SolidColorBrush(Colors.White);
-           this.Effect = blur;
+            //var blur = new BlurEffect();
+            //blur.Radius = 8;         
+            //var current = this.Background;
+
+            //this.Background = new SolidColorBrush(Color.FromRgb(52,152,219));
+            //this.Effect = blur;
+
+            //
+            
+            this.Effect = new BlurEffect
+            {
+                KernelType = KernelType.Gaussian,
+                Radius = 20,
+                RenderingBias = RenderingBias.Quality
+            };
             if (MessageBox.Show("Tem a Certeza que pretende sair?", "Sair", MessageBoxButton.YesNo, MessageBoxImage.Question).Equals(MessageBoxResult.Yes))
             {
+                try
+                {
+                    UsuarioBLL usuariobll = new UsuarioBLL();
+                        user.DataUltimoAcesso = DateTime.Now;
+                        usuariobll.ActualizarUsuario(user);
+                    
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Ocorreu um problema ao finalizar a aplicação, Por favor informe ao Administrador do Sistema");
+                }
+                
                 Application.Current.Shutdown();
+                
             }
            this.Effect = null;
-           this.Background = current;
+           //this.Background = current;
         }
 
         private void btn_sair_MouseLeave(object sender, MouseEventArgs e)
@@ -170,9 +199,9 @@ namespace HDATA.Views
 
         private void ImageAwesome_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (user.Perfil_Usuario=="Administrador")
+            if (user.Perfil_Usuario==UserType.Admin)
             {
-                //Categoria de medico Nefrologista
+                //Categoria de Admin
                 //BLUR EFFECT
                 var blur = new BlurEffect();
                 blur.Radius = 7;

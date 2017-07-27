@@ -10,11 +10,11 @@ namespace CamadaNegocio
 {
     public class EscalaBLL
     {
-        AcessoDadosBLL acessodadosBLL;
+        BaseAcessoDadosBLL acessodadosBLL;
 
         public EscalaBLL()
         {
-            acessodadosBLL = new AcessoDadosBLL();
+            acessodadosBLL = new BaseAcessoDadosBLL();
         }
 
         public List<Escala> ListarEscala()

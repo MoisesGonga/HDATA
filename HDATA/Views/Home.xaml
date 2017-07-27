@@ -20,7 +20,7 @@
         <Label x:Name="label" Grid.Row="2" Content="SISTEMA DE GESTÃO DE PACIENTES - CENTRO DE HEMODIÁLISE" Foreground="#FF007ACC" FontSize="30" Margin="12,82.889,13,97.888" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="DemiBold" Grid.ColumnSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
         <Border Grid.ColumnSpan="2" Margin="178.074,-4.639,135.013,87.36" Grid.Row="1" Grid.RowSpan="2">
             <Grid>
-                <Label FontFamily="Arial" FontSize="150" Foreground="#2980B9" Content="HD" Margin="0,0,226,0" RenderTransformOrigin="0.5,0.5">
+                <Label FontFamily="Arial" FontSize="150" Foreground="#2980B9" Content="HD" Margin="2,-1,224,1" RenderTransformOrigin="0.5,0.5">
                     <Label.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleY="1.021" ScaleX="1.004"/>

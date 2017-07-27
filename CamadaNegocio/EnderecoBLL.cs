@@ -10,11 +10,11 @@ namespace CamadaNegocio
 {
    public class EnderecoBLL
     {
-        AcessoDadosBLL acessoDadosBLL;
+        BaseAcessoDadosBLL acessoDadosBLL;
 
         public EnderecoBLL()
         {
-            acessoDadosBLL = new AcessoDadosBLL();
+            acessoDadosBLL = new BaseAcessoDadosBLL();
         }
 
         public string CadastrarEndereco(Endereco endereco)

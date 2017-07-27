@@ -17,6 +17,8 @@ namespace HDATA.Views
         //Centro_Hemodialise centro_hemodialise;
         UsuarioBLL usuarioBLL;
         bool logado = false;
+        private ViewSplash viewSplash;
+
         public LoginMain()
         {
             InitializeComponent();
@@ -41,6 +43,23 @@ namespace HDATA.Views
                 throw new Exception(ex.Message);
             }
             usuarioBLL = new UsuarioBLL();
+        }
+
+        public LoginMain(ViewSplash viewSplash)
+        {
+            InitializeComponent();
+            try
+            {
+                viewSplash.Close();
+                usuarioBLL = new UsuarioBLL();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao carregar a Tela de Login, por favor contacte ao Administrador do sistema...");
+            }
+            
+            
+
         }
 
         private void Border_DragOver(object sender, DragEventArgs e)
@@ -79,11 +98,12 @@ namespace HDATA.Views
             var blur = new BlurEffect();
             blur.Radius = 8;
             var current = this.Background;
-            this.Background = new SolidColorBrush(Colors.White);
+            this.Background = new SolidColorBrush(Color.FromRgb(255, 255, 225));
             this.Effect = blur;
             if (MessageBox.Show("Tem a Certeza que pretende sair?", "Sair", MessageBoxButton.YesNo, MessageBoxImage.Warning).Equals(MessageBoxResult.Yes))
             {
                 Application.Current.Shutdown();
+                
             }
             this.Effect = null;
             this.Background = current;
@@ -241,7 +261,7 @@ namespace HDATA.Views
                         txt_login.Text = "";
                         txt_senha.Text = "";
                         this.Visibility = Visibility.Hidden;
-                        MainWindow main = new MainWindow(new Usuario("Moises"));
+                        MainWindow main = new MainWindow(new Usuario("MOISES"));
                         main.ShowDialog();
                     }
                     else if (usuario != null && usuario.NomeUsuario.Equals(txt_login.Text) && criptoMD5.ComparaMD5(txt_senha.Text, usuario.PalavraPasse))
@@ -252,6 +272,11 @@ namespace HDATA.Views
                         await Task.Delay(2000);
                         txt_login.Text = "";
                         txt_senha.Text = "";
+                        if (string.IsNullOrEmpty(usuario.SiglaUsuario))
+                        {
+                            usuario.SiglaUsuario = Abreviacao(usuario.Funcionario.Nome).ToUpper();
+                            usuarioBLL.ActualizarUsuario(usuario);
+                        }
                         MainWindow main = new MainWindow(usuario);
                         this.Close();
                         main.ShowDialog();
@@ -263,6 +288,17 @@ namespace HDATA.Views
                     }
                 }
             }
+        }
+
+        private string Abreviacao(string username)
+        {
+            string ret = "";
+
+            if (username.Length > 2)
+            {
+                ret = username[0] + "" + username[1] + "";
+            }
+            return ret;
         }
 
         private async void LogarUsuario()

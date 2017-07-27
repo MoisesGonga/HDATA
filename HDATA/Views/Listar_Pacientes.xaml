@@ -62,21 +62,21 @@
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <ScrollViewer Width="Auto" HorizontalScrollBarVisibility="Hidden" Margin="0,0,0,33">
+            <ScrollViewer Width="Auto" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Margin="0,0,0,33">
                 <DataGrid x:Name="dataGrid1" Background="#F0F0F0" CanUserAddRows="False" IsReadOnly="True" CanUserDeleteRows="False" RowStyle="{StaticResource DataGridRowStyle}" ColumnHeaderStyle="{StaticResource HeaderStyle}" GridLinesVisibility="None" SelectionMode="Single" RowHeight="20"  AutoGenerateColumns="False" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" SelectionChanged="dataGrid1_SelectionChanged" FontSize="14" VerticalContentAlignment="Center" Cursor="Hand" Width="1329" Height="536"  CanUserResizeRows="False" LostFocus="dataGrid1_LostFocus" MouseDoubleClick="dataGrid1_MouseDoubleClick">
                     <DataGrid.Columns>
-                        
-                        <DataGridTextColumn Header="ID CENTRO" Binding="{Binding idpessoa}" Width="AUTO"/>
-                        <DataGridTextColumn Header="NRº PRONTUÁRIO HOSPITAL" Binding="{Binding identificacao_hp}"/>
+
+                        <DataGridTextColumn Header="ID CENTRO" Binding="{Binding idpessoa}" CellStyle="{StaticResource CenterCellStyle}" />
+                        <DataGridTextColumn Header="NRº PRONTUÁRIO HOSPITAL" Binding="{Binding identificacao_hp}" CellStyle="{StaticResource CenterCellStyle}"/>
                         <DataGridTextColumn Header="NOME PACIENTE" Binding="{Binding nome}"/>
-                        <DataGridTextColumn Header="TIPO INSUFICIÊNCIA" Binding="{Binding tipo_insuficiencia}"/>
+                        <DataGridTextColumn Header="TIPO INSUFICIÊNCIA" Binding="{Binding tipo_insuficiencia}" CellStyle="{StaticResource CenterCellStyle}"/>
                         <DataGridTextColumn Header="DATA NASCIMENTO" Binding="{Binding datanasc, StringFormat=\{0:dd-MM-yy\},Mode=OneWay}"/>
                         <DataGridTextColumn Header="DATA ENTRADA" Binding="{Binding data_entrada, StringFormat=\{0:dd-MM-yy\},Mode=OneWay}"/>
                         <DataGridTextColumn Header="DATA INICIO TRATAMENTO" Binding="{Binding data_inicio_hd, StringFormat=\{0:dd-MM-yy\},Mode=OneWay}"/>
-                        <DataGridTextColumn Header="GENERO" Binding="{Binding genero}"/>
-                        <DataGridTextColumn Header="RAÇA" Binding="{Binding raca}"/>
-                        <DataGridTextColumn Header="TELEFONE" Binding="{Binding telefone_1}"/>
-                        <DataGridTextColumn Header="TELEFONE PARENTE" Binding="{Binding telefone_parente}"/>
+                        <DataGridTextColumn Header="GENERO" Binding="{Binding genero}" CellStyle="{StaticResource CenterCellStyle}"/>
+                        <DataGridTextColumn Header="RAÇA" Binding="{Binding raca}" CellStyle="{StaticResource CenterCellStyle}"/>
+                        <DataGridTextColumn Header="TELEFONE" Binding="{Binding telefone_1}" CellStyle="{StaticResource CenterCellStyle}"/>
+                        <DataGridTextColumn Header="TELEFONE PARENTE" Binding="{Binding telefone_parente}" CellStyle="{StaticResource CenterCellStyle}"/>
                         <DataGridTextColumn Header="NOME PARENTE" Binding="{Binding nome_parente}"/>
                         <DataGridTextColumn Header="Nº BILHETE IDENTIDADE" Binding="{Binding num_bi}"/>
                         <DataGridTextColumn Header="NOME ENTIDADE RESPONSÁVEL" Binding="{Binding nome_entidade_responsavel}"/>

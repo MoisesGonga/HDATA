@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HDATA.Views"
-             xmlns:fa="http://schemas.fontawesome.io/icons/" xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" x:Class="HDATA.Views.SessaoHemodialise"
+             xmlns:fa="http://schemas.fontawesome.io/icons/" xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" x:Class="HDATA.Views.usc_sessao_hemodialise"
              mc:Ignorable="d" 
               Width="1341.464" Height="631">
     <UserControl.Resources>
@@ -72,16 +72,18 @@
             <RowDefinition Height="43*"/>
         </Grid.RowDefinitions>
         <Label x:Name="lbl_Title" Grid.Row="0" Content="Sessão Hemodiálise"  Foreground="#1BA1E2" FontSize="25" FontStyle="Normal" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="554,6,553,5" Height="44" Width="234"  />
+        <StackPanel Margin="44,16,926,6" Orientation="Vertical" Grid.Row="1">
 
-        <Button x:Name="btn_registrar_sessão_Hemodialise" IsEnabled="True"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="44,15,0,5"  Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand" Foreground="White" Height="38" Width="240" Grid.Row="1" Click="btn_registrar_sessão_Hemodialise_Click">
-            <StackPanel Orientation="Horizontal">
-                <fa:ImageAwesome x:Name="font_icon_ave" Foreground="White" Width="14" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="Pencil" />
-                <Label Content="Registrar Dados Sessão" FontSize="16"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"/>
-            </StackPanel>
-        </Button>
+            <Button x:Name="btn_registrar_sessão_Hemodialise" IsEnabled="True"  HorizontalAlignment="Left" VerticalAlignment="Center"  Style="{DynamicResource ButtonStyleFlatHDATA}" Cursor="Hand" Foreground="White" Height="38" Width="240" Click="btn_registrar_sessão_Hemodialise_Click">
+                <StackPanel Orientation="Horizontal">
+                    <fa:ImageAwesome x:Name="font_icon_ave" Foreground="White" Width="14" VerticalAlignment="Center" HorizontalAlignment="Left" Icon="Pencil" />
+                    <Label Content="Registrar Dados Sessão" FontSize="16"  Foreground="White" Margin=" 5 0 0 3" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Row="2">
-            <ScrollViewer Width="Auto" HorizontalScrollBarVisibility="Hidden" Margin="0,0,0,33">
-                <DataGrid x:Name="dataGrid_PacietesEscalados" RowStyle="{StaticResource DataGridRowStyle}" ColumnHeaderStyle="{StaticResource HeaderStyle}" GridLinesVisibility="None" SelectionMode="Single" RowHeight="20"  AutoGenerateColumns="False" AlternatingRowBackground="#EFEFEF" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" FontSize="14" VerticalContentAlignment="Center" Cursor="Hand" Width="1329" Height="536" Background="White" CanUserAddRows="False" CanUserResizeRows="False" >
+            <ScrollViewer Width="Auto" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Margin="0,0,0,33" Height="510">
+                <DataGrid x:Name="dataGrid_PacietesEscalados" IsReadOnly="True" RowStyle="{StaticResource DataGridRowStyle}" ColumnHeaderStyle="{StaticResource HeaderStyle}" GridLinesVisibility="None" SelectionMode="Single" RowHeight="20"  AutoGenerateColumns="False" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" FontSize="14" VerticalContentAlignment="Center" Cursor="Hand" Width="1329" Height="500" Background="White" CanUserAddRows="False" CanUserResizeRows="False" SelectionChanged="dataGrid_PacietesEscalados_SelectionChanged_1" MouseDoubleClick="dataGrid_PacietesEscalados_MouseDoubleClick" >
                     <DataGrid.Columns>
                         <!--
                         SELECT dp.idpessoa,
@@ -92,16 +94,14 @@
                         tav.abrev_acesso ,dp.data_entrada,dp.raca,dp.genero FROM 
                         
                         -->
-                        <DataGridTextColumn Header="ID CENTRO" Binding="{Binding idpessoa}" Width="AUTO"/>
-                        <DataGridTextColumn Header="NRº PRONTUÁRIO HOSPITAL" Binding="{Binding identificacao_hp}"/>
+                        <DataGridTextColumn CellStyle="{StaticResource CenterCellStyle}" Header="ID CENTRO" Binding="{Binding idpessoa}" Width="AUTO"/>
+                        <DataGridTextColumn CellStyle="{StaticResource CenterCellStyle}" Header="NRº PRONTUÁRIO HOSPITAL" Binding="{Binding identificacao_hp}"/>
                         <DataGridTextColumn Header="NOME PACIENTE" Binding="{Binding nome}"/>
-                        <DataGridTextColumn Header="TIPO INSUFICIÊNCIA" Binding="{Binding tipo_insuficiencia}"/>
-                        <DataGridTextColumn Header="TIPO ACESSO VASCULAR" Binding="{Binding tipo_insuficiencia}"/>
-                        <DataGridTextColumn Header="DATA ACESSO VASCULAR" Binding="{Binding data_realizacao, StringFormat=\{0:dd-MM-yy\},Mode=OneWay}"/>
+                        <DataGridTextColumn CellStyle="{StaticResource CenterCellStyle}" Header="TIPO INSUFICIÊNCIA" Binding="{Binding tipo_insuficiencia}"/>
+                        <DataGridTextColumn Header="TIPO ACESSO VASCULAR" Binding="{Binding abrev_acesso}"/>
                         <DataGridTextColumn Header="DATA ENTRADA" Binding="{Binding data_entrada, StringFormat=\{0:dd-MM-yy\},Mode=OneWay}"/>
-                        <DataGridTextColumn Header="DATA INICIO TRATAMENTO" Binding="{Binding data_inicio_hd, StringFormat=\{0:dd-MM-yy\},Mode=OneWay}"/>
-                        <DataGridTextColumn Header="GENERO" Binding="{Binding genero}"/>
-                        <DataGridTextColumn Header="RAÇA" Binding="{Binding raca}"/>
+                        <DataGridTextColumn CellStyle="{StaticResource CenterCellStyle}" Header="GENERO" Binding="{Binding genero}"/>
+                        <DataGridTextColumn Header="ESTADO" Binding="{Binding estado}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>

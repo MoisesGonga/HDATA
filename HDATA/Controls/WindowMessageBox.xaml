@@ -1,0 +1,19 @@
+﻿<Window x:Class="HDATA.Controls.WindowMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HDATA.Controls"
+        mc:Ignorable="d"
+        Title="WindowMessageBox" Height="191" Width="458" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
+
+    <Border BorderBrush="Black" CornerRadius="8" BorderThickness="1" Background="White">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="145*"/>
+            </Grid.RowDefinitions>
+
+        </Grid>
+    </Border>
+</Window>

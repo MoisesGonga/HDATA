@@ -171,6 +171,14 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="TimelineExLib, Version=2.0.2.41912, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Timeline.2.0.2.41912\lib\net40\TimelineExLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TimelineLibrary, Version=2.0.2.41912, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Timeline.2.0.2.41912\lib\net40\TimelineLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="UIAutomationProvider" />
     <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
@@ -215,6 +223,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\WindowMessageBox.xaml.cs">
+      <DependentUpon>WindowMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserAccess\AppCommon.cs" />
     <Compile Include="Controls\ClosableTab.cs" />
     <Compile Include="Controls\CloseableHeader.xaml.cs">
       <DependentUpon>CloseableHeader.xaml</DependentUpon>
@@ -271,6 +283,7 @@
     </Compile>
     <Compile Include="SQLite.cs" />
     <Compile Include="SQLiteAsync.cs" />
+    <Compile Include="UserAccess\UserAccessAttachedProperty.cs" />
     <Compile Include="Views\NewDesignMainWindow.xaml.cs">
       <DependentUpon>NewDesignMainWindow.xaml</DependentUpon>
     </Compile>
@@ -316,17 +329,23 @@
     <Compile Include="Views\ReportItextsharp.xaml.cs">
       <DependentUpon>ReportItextsharp.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SessaoHemodialise.xaml.cs">
-      <DependentUpon>SessaoHemodialise.xaml</DependentUpon>
+    <Compile Include="Views\usc_sessao_hemodialise.xaml.cs">
+      <DependentUpon>usc_sessao_hemodialise.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\usc_registo_dialise.xaml.cs">
       <DependentUpon>usc_registo_dialise.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewAlterarPalavraPasse.xaml.cs">
+      <DependentUpon>ViewAlterarPalavraPasse.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewReportProveniencia.xaml.cs">
       <DependentUpon>ViewReportProveniencia.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewReportSessaoHemodialise.xaml.cs">
       <DependentUpon>ViewReportSessaoHemodialise.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewSplash.xaml.cs">
+      <DependentUpon>ViewSplash.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewUC_CadastroPessoaDadosBasico.xaml.cs">
       <DependentUpon>ViewUC_CadastroPessoaDadosBasico.xaml</DependentUpon>
@@ -340,6 +359,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\TextBoxLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\WindowMessageBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -411,11 +434,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SessaoHemodialise.xaml">
+    <Page Include="Views\usc_sessao_hemodialise.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\usc_registo_dialise.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ViewAlterarPalavraPasse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -424,6 +451,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ViewReportSessaoHemodialise.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ViewSplash.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

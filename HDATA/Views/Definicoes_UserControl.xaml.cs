@@ -11,6 +11,8 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
+using System.Data;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -24,22 +26,22 @@ namespace HDATA.Views
     {
         Usuario user;
 
-        public Definicoes_UserControl()
-        {
-            InitializeComponent();
-        }
-
         public Definicoes_UserControl(Usuario usuario)
         {
             
             InitializeComponent();
             this.user = usuario;
-            if (usuario.Perfil_Usuario != "Administrador")
-            {
-                tab_gerir_usuario.Visibility = Visibility.Hidden;
-            }
+            CarregarUtilizadores();
 
 
+        }
+
+        private void CarregarUtilizadores()
+        {
+            UsuarioBLL usuariobll = new UsuarioBLL();
+            
+            
+            dtgridUtilizador.ItemsSource = usuariobll.ListarTodosDadosUtilizadores().AsDataView();
         }
 
         private void DefinicaoContaUtilizador_UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -125,6 +127,21 @@ namespace HDATA.Views
         private void main_tab_gerir_utilizadores_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void btn_alterar_palavra_passe_func_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario user = new Usuario();
+            ViewAlterarPalavraPasse viewalterarPalavra = new ViewAlterarPalavraPasse(user);
+            var blur = new BlurEffect();
+            blur.Radius = 8;
+            var current = this.Background;
+            this.Background = new SolidColorBrush(Colors.White);
+            this.Effect = blur;
+            viewalterarPalavra.ShowDialog();
+            this.Effect = null;
+            this.Background = current;
+         
         }
     }
 }

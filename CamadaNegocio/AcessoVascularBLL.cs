@@ -10,11 +10,11 @@ namespace CamadaNegocio
 {
   public  class AcessoVascularBLL
     {
-        AcessoDadosBLL acessodadosBLL;
+        BaseAcessoDadosBLL acessodadosBLL;
 
         public AcessoVascularBLL()
         {
-            acessodadosBLL = new AcessoDadosBLL();
+            acessodadosBLL = new BaseAcessoDadosBLL();
         }
 
         public List<AcessoVascular> ListarAcessosVascular(Paciente p)
@@ -92,7 +92,11 @@ namespace CamadaNegocio
         public int CadastrarAcessoVascular(AcessoVascular acessoVascular)
         {
             acessodadosBLL.AcessodadosPostgreSQL.LimparParametros();
-            string query = $"insert into \"Acesso_vascular\" values (default,{acessoVascular.tipoAcesso.Id_tipo_acesso}, TO_DATE('{FormatarData(acessoVascular.Data_Realizacao)}', 'YYYY-MM-DD'),'{acessoVascular.Recuperacao_cirugica}', '{acessoVascular.Director_clinico}', '{acessoVascular.Clinica_hospital}', '{acessoVascular.Complicacao_av}', TO_DATE('{FormatarData(acessoVascular.Data_falencia)}', 'YYYY-MM-DD'), '{acessoVascular.MotivoFalencia}', {acessoVascular.Paciente_.Id_pessoa}, '{acessoVascular.Local_acesso}', '{acessoVascular.Cirugiao_nefrologista}')";
+            //Before 
+            //string query = $"insert into \"Acesso_vascular\" values (default,{acessoVascular.tipoAcesso.Id_tipo_acesso}, TO_DATE('{FormatarData(acessoVascular.Data_Realizacao)}', 'YYYY-MM-DD'),'{acessoVascular.Recuperacao_cirugica}', '{acessoVascular.Director_clinico}', '{acessoVascular.Clinica_hospital}', '{acessoVascular.Complicacao_av}', TO_DATE('{FormatarData(acessoVascular.Data_falencia)}', 'YYYY-MM-DD'), '{acessoVascular.MotivoFalencia}', {acessoVascular.Paciente_.Id_pessoa}, '{acessoVascular.Local_acesso}', '{acessoVascular.Cirugiao_nefrologista}')";
+            //Now
+            
+            string query = $"insert into \"Acesso_vascular\" values (default,{acessoVascular.tipoAcesso.Id_tipo_acesso}, {BaseHelpBLL.DateToInsert_or_UpdateDatabse(acessoVascular.Data_Realizacao)},'{acessoVascular.Recuperacao_cirugica}', '{acessoVascular.Director_clinico}', '{acessoVascular.Clinica_hospital}', '{acessoVascular.Complicacao_av}', {BaseHelpBLL.DateToInsert_or_UpdateDatabse(acessoVascular.Data_falencia)}, '{acessoVascular.MotivoFalencia}', {acessoVascular.Paciente_.Id_pessoa}, '{acessoVascular.Local_acesso}', '{acessoVascular.Cirugiao_nefrologista}')";
             acessodadosBLL.AcessodadosPostgreSQL.ExecututarManipulacao(CommandType.Text, query);
             object rt2 = acessodadosBLL.AcessodadosPostgreSQL.ExecututarManipulacao(CommandType.Text, "select last_value as id_acesso from \"Acesso_vascular_id_acesso_seq\"");
             return Convert.ToInt32(rt2);
@@ -104,7 +108,7 @@ namespace CamadaNegocio
             //Actualização UTILIZANDO COMANDO DE MANIPULAÇÃO SQL
             try
             {
-                string query = $" update \"Acesso_vascular\" set id_tipo_acesso = {acessoVascular.tipoAcesso.Id_tipo_acesso}, data_realizacao = TO_DATE('{FormatarData(acessoVascular.Data_Realizacao)}', 'YYYY-MM-DD'), recuperacao_cirugica='{acessoVascular.Recuperacao_cirugica}', director_clinico='{acessoVascular.Director_clinico}', clinica_hospital = '{acessoVascular.Clinica_hospital}', complicacao_av = '{acessoVascular.Complicacao_av}', data_falencia = TO_DATE('{FormatarData(acessoVascular.Data_falencia)}', 'YYYY-MM-DD'), motivo_falencia = '{acessoVascular.MotivoFalencia}', local_acesso = '{acessoVascular.Local_acesso}', cirugiao_nefrologista = '{acessoVascular.Cirugiao_nefrologista}' where id_acesso = {acessoVascular.ID_AcessoVascular}";
+                string query = $" update \"Acesso_vascular\" set id_tipo_acesso = {acessoVascular.tipoAcesso.Id_tipo_acesso}, data_realizacao = {BaseHelpBLL.DateToInsert_or_UpdateDatabse(acessoVascular.Data_Realizacao)}, recuperacao_cirugica='{acessoVascular.Recuperacao_cirugica}', director_clinico='{acessoVascular.Director_clinico}', clinica_hospital = '{acessoVascular.Clinica_hospital}', complicacao_av = '{acessoVascular.Complicacao_av}', data_falencia = {BaseHelpBLL.DateToInsert_or_UpdateDatabse(acessoVascular.Data_falencia)}, motivo_falencia = '{acessoVascular.MotivoFalencia}', local_acesso = '{acessoVascular.Local_acesso}', cirugiao_nefrologista = '{acessoVascular.Cirugiao_nefrologista}' where id_acesso = {acessoVascular.ID_AcessoVascular}";
               //  acessodadosBLL.AcessodadosPostgreSQL.ExecututarManipulacao(CommandType.Text,$" update \"Acesso_vascular\" set id_tipo_acesso = '{acessoVascular.tipoAcesso.Id_tipo_acesso}', data_realizacao = TO_DATE('{FormatarData(acessoVascular.Data_Realizacao)}', 'YYYY-MM-DD'), recuperacao_cirugica='{acessoVascular.Recuperacao_cirugica}', director_clinico='{acessoVascular.Director_clinico}', clinica_hospital = '{acessoVascular.Clinica_hospital}', complicacao_av = '{acessoVascular.Complicacao_av}', data_falencia = TO_DATE('{FormatarData(acessoVascular.Data_falencia)}', 'YYYY-MM-DD'), motivo_falencia = '{acessoVascular.MotivoFalencia}', local_acesso = '{acessoVascular.Local_acesso}', cirugiao_nefrologista = {acessoVascular.Cirugiao_nefrologista} where id_acesso = {acessoVascular.ID_AcessoVascular}");
                 acessodadosBLL.AcessodadosPostgreSQL.ExecututarManipulacao(CommandType.Text, query);
             }
@@ -129,7 +133,7 @@ namespace CamadaNegocio
             try
             {
                 listaAcessoVascular = new List<AcessoVascular>();
-                DataTable DataTableAcessoVascular = acessodadosBLL.AcessodadosPostgreSQL.ExecututarConsulta(CommandType.Text, $"select * from \"Acesso_vascular\" where data_realizacao between TO_DATE('{FormatarData(dataRealizacao_inicial)}', 'YYYY-MM-DD') and TO_DATE('{FormatarData(dataRealizacao_final)}', 'YYYY-MM-DD') and idpessoa = {idpaciente}");
+                DataTable DataTableAcessoVascular = acessodadosBLL.AcessodadosPostgreSQL.ExecututarConsulta(CommandType.Text, $"select * from \"Acesso_vascular\" where data_realizacao between {BaseHelpBLL.DateToInsert_or_UpdateDatabse(dataRealizacao_inicial)} and {BaseHelpBLL.DateToInsert_or_UpdateDatabse(dataRealizacao_final)} and idpessoa = {idpaciente}");
                 foreach (DataRow linha in DataTableAcessoVascular.Rows)
                 {
                     AcessoVascular acessoVascular = new AcessoVascular();
